@@ -2,6 +2,16 @@
 
 A way to track strength exercises
 
+## Tools used
+
+- Swift
+- SwiftUI
+- Cursor
+- Xcode
+- SwiftData
+
+---
+
 # Tasks
 
 ## User facing tasks
