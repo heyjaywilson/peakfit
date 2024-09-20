@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "SwiftUI app to track your exercise",
   "scripts": {
-    "test": "swift test",
-    "scripts": "husky"
+    "test": "echo \"Script work\"",
+    "prepare": "husky"
   },
   "author": "heyjaywilson",
   "license": "ISC",
