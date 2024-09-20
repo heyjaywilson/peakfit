@@ -5,19 +5,20 @@ categories:
     labels:
       - 'feature'
       - 'enhancement'
-  - title: '🐛 Fixes'
+  - title: '🐛 Bug Fixes'
     labels:
       - 'fix'
       - 'bug'
   - title: '🧰 Maintenance'
     labels: 
       - 'chore'
+      - 'refactor'
+      - 'style'
+  - title: '💻 Code related'
+      - 'build'
       - 'ci'
       - 'docs'
       - 'test'
-      - 'refactor'
-      - 'style'
-      - 'build'
 change-template: '- $TITLE #$NUMBER @$AUTHOR'
 version-resolver:
   major:
@@ -38,3 +39,20 @@ template: |
   ##  What's Changed
 
   $CHANGES
+replacers:
+  - search: 'feat: '
+    replace: ''
+  - search: 'fix: '
+    replace: ''
+  - search: 'chore: '
+    replace: ''
+  - search: 'ci: '
+    replace: ''
+  - search: 'test: '
+    replace: ''
+  - search: 'refactor: '
+    replace: ''
+  - search: 'style: '
+    replace: ''
+  - search: 'build: '
+    replace: ''
