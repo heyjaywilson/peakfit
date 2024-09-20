@@ -35,6 +35,21 @@ extension ExerciseSet {
 			}
 		}
 
+		public func addSet(for exerciseID: PersistentIdentifier, weight: Double, reps: Int) throws {
+			guard let exercise = self[exerciseID, as: Exercise.self] else {
+				print("\(#file) \(#function) \(exerciseID) not found")
+				return
+			}
+			let newSet = ExerciseSet(
+				reps: reps,
+				weight: weight,
+				dateCompleted: .now
+			)
+			modelContext.insert(newSet)
+			exercise.sets.append(newSet)
+			try save()
+		}
+
 		private func save() throws {
 			do {
 				try modelContext.save()
