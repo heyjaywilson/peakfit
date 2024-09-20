@@ -36,7 +36,8 @@ public struct ExerciseListView: View {
 		NavigationStack {
 			List {
 				ForEach(lists) { exerciseList in
-					NavigationLink(destination: ExerciseListDetailView(exerciseList: exerciseList)) {
+					NavigationLink(destination: ExerciseListDetailView(exerciseList: exerciseList))
+					{
 						listRow(for: exerciseList)
 					}
 				}
