@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "SwiftUI app to track your exercise",
   "scripts": {
-    "prepare": "husky"
+    "prepare": "husky",
+    "format": "swift-format format . -r --configuration .swift-format.json -i"
   },
   "author": "heyjaywilson",
   "license": "Apache-2.0",
