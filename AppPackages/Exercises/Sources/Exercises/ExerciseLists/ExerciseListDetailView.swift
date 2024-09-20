@@ -56,14 +56,15 @@ struct ExerciseListDetailView: View {
 				}
 				.swipeActions(edge: .trailing) {
 					Button(
-						role: .destructive) {
-							deleteExercise(exercise)
-						} label: {
-							Label(
-								"Delete",
-								systemImage: "trash"
-							)
-						}
+						role: .destructive
+					) {
+						deleteExercise(exercise)
+					} label: {
+						Label(
+							"Delete",
+							systemImage: "trash"
+						)
+					}
 
 				}
 			}
