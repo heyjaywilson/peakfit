@@ -11,8 +11,8 @@ trim_trailing_whitespace = true
 # Swift files
 [*.swift]
 indent_style = tab
-indent_size = 2
-tab_width = 2
+indent_size = 4
+tab_width = 4
 max_line_length = 100
 
 # Enforce one blank line
@@ -33,13 +33,6 @@ charset = ascii
 
 # Enforce capitalization of type names
 pascal_case_types = true
-
-# Objective-C files (assuming similar style to Swift)
-[*.{h,m,mm}]
-indent_style = tab
-indent_size = 2
-tab_width = 2
-max_line_length = 100
 
 # Xcode project files
 [*.{xcodeproj,xcworkspace}]

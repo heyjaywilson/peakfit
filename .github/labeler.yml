@@ -40,6 +40,16 @@ labels:
     sync: true
     matcher:
       title: "^.*!.*$"
+  - label: 'build'
+    sync: true
+    matcher:
+      title: "^build.*"
+      branch: "^build.*"
+  - label: 'style'
+    sync: true
+    matcher:
+      title: "^style.*"
+      branch: "^style.*"
   # ISSUE
   - label: 'bug'
     sync: true
