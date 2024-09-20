@@ -40,6 +40,20 @@ extension Exercise {
 			}
 		}
 
+		public func delete(for ids: [PersistentIdentifier]) throws {
+			for id in ids {
+				guard let exercise = self[
+					id,
+					as: Exercise.self
+				] else {
+					print("\(#file) \(#function) Could not find Exercise with ID: \(id)")
+					return
+				}
+				modelContext.delete(exercise)
+				try save()
+			}
+		}
+
 		/// Returns PersistentIdentifier for each exercise
 		func getAllIDs() throws -> [PersistentIdentifier] {
 			let descriptor = FetchDescriptor<Exercise>()
