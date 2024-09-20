@@ -1,9 +1,3 @@
-// Copyright 2024 CCT Plus LLC
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
 // swift-tools-version: 6.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 

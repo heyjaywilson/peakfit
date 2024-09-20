@@ -28,7 +28,7 @@ jobs:
         
         UPDATED_FILES=0
         
-        for file in $(find . -name "*.swift"); do
+        for file in $(find . -name "*.swift" ! -name "Package.swift"); do
           if ! grep -q "Copyright 2024 CCT Plus LLC" "$file"; then
             echo "Adding copyright header to $file"
             echo "$NOTICE" | cat - "$file" > temp && mv temp "$file"
