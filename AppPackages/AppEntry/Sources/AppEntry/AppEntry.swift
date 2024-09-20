@@ -16,7 +16,6 @@
 // 💭 Follow on Mastodon: https://iosdev.space/@heyjaywilson
 // ☕ Buy me a ko-fi:     https://ko-fi.com/heyjaywilson
 // -----------------------------------------------------------
-// Copyright© 2024 CCT Plus LLC. All rights reserved.
 //
 
 import Exercises
