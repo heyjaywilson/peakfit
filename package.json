@@ -1,0 +1,15 @@
+{
+  "name": "peakfit",
+  "version": "0.0.1",
+  "description": "SwiftUI app to track your exercise",
+  "scripts": {
+    "test": "swift test",
+    "scripts": "husky"
+  },
+  "author": "heyjaywilson",
+  "license": "ISC",
+  "devDependencies": {
+    "devmoji": "^2.3.0",
+    "husky": "^9.1.6"
+  }
+}
