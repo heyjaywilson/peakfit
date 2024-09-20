@@ -15,6 +15,7 @@ categories:
       - 'refactor'
       - 'style'
   - title: '💻 Code related'
+    labels:
       - 'build'
       - 'ci'
       - 'docs'
