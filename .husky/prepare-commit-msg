@@ -1,1 +1,1 @@
-npx devmoji -e --lint --format devmoji
+npx devmoji -e --lint --format shortcode
