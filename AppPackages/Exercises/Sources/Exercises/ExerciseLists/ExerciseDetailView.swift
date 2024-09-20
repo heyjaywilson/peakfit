@@ -104,6 +104,17 @@ extension ExerciseDetailView {
 							Label("Delete", systemImage: "trash")
 						}
 					}
+					.swipeActions(edge: .leading) {
+						Button {
+							repeatSet(set)
+						} label: {
+							Label(
+								"Repeat",
+								systemImage: "repeat"
+							)
+						}
+						.tint(.orange)
+					}
 				}
 			} header: {
 				Text(
@@ -123,6 +134,27 @@ extension ExerciseDetailView {
 			let service = ExerciseSet.Service(modelContainer: container)
 			do {
 				try await service.deleteSet(for: [id])
+			}
+			catch {
+				print("🚨 \(#file) \(#function) \(error)")
+			}
+		}
+	}
+
+	func repeatSet(_ set: ExerciseSet) {
+		let exerciseID = exercise.persistentModelID
+		let weight = set.weight
+		let reps = set.reps
+		let container = modelContext.container
+
+		Task.detached(priority: .userInitiated) {
+			let service = ExerciseSet.Service(modelContainer: container)
+			do {
+				try await service.addSet(
+					for: exerciseID,
+					weight: weight,
+					reps: reps
+				)
 			}
 			catch {
 				print("🚨 \(#file) \(#function) \(error)")

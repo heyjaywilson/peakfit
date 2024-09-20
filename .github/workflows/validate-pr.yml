@@ -23,6 +23,14 @@ jobs:
         with:
           node-version: '16'
 
+      - uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          subjectPattern: ^(?![A-Z]).+$
+          subjectPatternError: |
+            Please ensure that the subject doesn't start with an uppercase character.
+
       - name: Install devmoji
         run: npm install -g devmoji
 
@@ -31,13 +39,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_TITLE: ${{ github.event.pull_request.title }}
         run: |
-          NEW_TITLE=$(devmoji -e -format shortcode "$PR_TITLE")
+          NEW_TITLE=$(echo "$PR_TITLE" | devmoji --input - --format shortcode)
           gh pr edit ${{ github.event.pull_request.number }} --title "$NEW_TITLE"
-
-      - uses: amannn/action-semantic-pull-request@v5
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          subjectPattern: ^(?![A-Z]).+$
-          subjectPatternError: |
-            Please ensure that the subject doesn't start with an uppercase character.
