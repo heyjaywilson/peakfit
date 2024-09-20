@@ -5,7 +5,7 @@
   "scripts": {
     "prepare": "husky",
     "emojify": "npx --no-install devmoji -e --format shortcode",
-    "format": "swift-format format . -r --configuration .swift-format.json -i",
+    "format": "find . -name \"*.swift\" -print0 | xargs -0 swift-format --in-place --configuration .swift-format.json",
     "format-changes": ". ./scripts/format-changes.sh"
   },
   "author": "heyjaywilson",

@@ -9,6 +9,16 @@ A way to track strength exercises
 - Cursor
 - Xcode
 - SwiftData
+- SwiftFormat
+
+## Commands
+
+| Command | Purpose |
+| --- | --- |
+| `npm prepare` | installs git hooks |
+| `npm run emojify` | adds emoji to the last commit |
+| `format` | runs swift format across all swift files |
+| `format-changes` | runs a script to only format swift files that have been touched |
 
 ---
 
@@ -30,9 +40,8 @@ A way to track strength exercises
 
 ## Non user facing tasks
 - [ ] Implement logger
-
-## Other tasks
-- [ ] Do I release this?
+- [ ] Update readme with pre-reqs
+- [ ] move tasks to github repo
 
 # The Future
 
