@@ -1,4 +1,4 @@
-name: "Validate PR Title"
+name: "Validate and Update PR Title"
 
 on:
   pull_request_target:
@@ -9,22 +9,35 @@ on:
       - synchronize
 
 permissions:
-  pull-requests: read
+  pull-requests: write
 
 jobs:
   main:
-    name: Validate PR title
+    name: Validate and Update PR title
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install devmoji
+        run: npm install -g devmoji
+
+      - name: Update PR title with emoji
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          NEW_TITLE=$(devmoji -e -format shortcode "$PR_TITLE")
+          gh pr edit ${{ github.event.pull_request.number }} --title "$NEW_TITLE"
+
       - uses: amannn/action-semantic-pull-request@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          # Configure additional validation for the subject based on a regex.
-          # This example ensures the subject doesn't start with an uppercase character.
           subjectPattern: ^(?![A-Z]).+$
-          # If `subjectPattern` is configured, you can use this property to override
-          # the default error message that is shown when the pattern doesn't match.
-          # The variables `subject` and `title` can be used within the message.
           subjectPatternError: |
             Please ensure that the subject doesn't start with an uppercase character.
