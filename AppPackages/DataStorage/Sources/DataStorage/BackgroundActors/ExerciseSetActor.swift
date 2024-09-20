@@ -7,7 +7,7 @@
 //
 // -----------------------------------------------------------
 // Project: DataStorage
-// Created on 9/10/24 by @HeyJayWilson
+// Created on 9/19/24 by @HeyJayWilson
 // -----------------------------------------------------------
 // Find HeyJayWilson on the web:
 // 🕸️ Website             https://heyjaywilson.com
@@ -18,18 +18,23 @@
 // -----------------------------------------------------------
 //
 
+import Foundation
 import SwiftData
 
-extension Exercise {
+extension ExerciseSet {
 	@ModelActor
 	public actor Service {
-		public func addExercise(name: String) throws {
-			let newExercise = Exercise(name: name)
-			modelContext.insert(newExercise)
-			try save()
+		public func deleteSet(for ids: [PersistentIdentifier]) throws {
+			for id in ids {
+				guard let set = self[id, as: ExerciseSet.self] else {
+					print("\(#file) \(#function) \(id) not found")
+					return
+				}
+				modelContext.delete(set)
+				try save()
+			}
 		}
 
-		/// Saves to the model context
 		private func save() throws {
 			do {
 				try modelContext.save()
@@ -38,27 +43,6 @@ extension Exercise {
 				print("🚨 \(#file) \(#function) \(error)")
 				throw error
 			}
-		}
-
-		public func delete(for ids: [PersistentIdentifier]) throws {
-			for id in ids {
-				guard let exercise = self[
-					id,
-					as: Exercise.self
-				] else {
-					print("\(#file) \(#function) Could not find Exercise with ID: \(id)")
-					return
-				}
-				modelContext.delete(exercise)
-				try save()
-			}
-		}
-
-		/// Returns PersistentIdentifier for each exercise
-		func getAllIDs() throws -> [PersistentIdentifier] {
-			let descriptor = FetchDescriptor<Exercise>()
-			let exercises = try modelContext.fetch(descriptor)
-			return exercises.map { $0.persistentModelID }
 		}
 	}
 }

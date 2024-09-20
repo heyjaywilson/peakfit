@@ -23,6 +23,7 @@ import SwiftData
 import SwiftUI
 
 struct ExerciseDetailView: View {
+	@Environment(\.modelContext) private var modelContext
 	@Query private var foundExercises: [Exercise]
 
 	@State private var showAddSet: Bool = false
@@ -96,6 +97,13 @@ extension ExerciseDetailView {
 						// TODO: Make lbs adjustable
 						Text("\(set.weight.formatted()) lbs")
 					}
+					.swipeActions(edge: .trailing) {
+						Button(role: .destructive) {
+							deleteSet(set)
+						} label: {
+							Label("Delete", systemImage: "trash")
+						}
+					}
 				}
 			} header: {
 				Text(
@@ -103,6 +111,21 @@ extension ExerciseDetailView {
 						.reference(to: .now, allowedFields: [.year, .month, .day])
 					)
 				)
+			}
+		}
+	}
+
+	func deleteSet(_ set: ExerciseSet) {
+		let id = set.persistentModelID
+		let container = modelContext.container
+
+		Task.detached(priority: .userInitiated) {
+			let service = ExerciseSet.Service(modelContainer: container)
+			do {
+				try await service.deleteSet(for: [id])
+			}
+			catch {
+				print("🚨 \(#file) \(#function) \(error)")
 			}
 		}
 	}
