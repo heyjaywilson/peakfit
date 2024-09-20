@@ -6,7 +6,7 @@
     "prepare": "husky"
   },
   "author": "heyjaywilson",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "devDependencies": {
     "devmoji": "^2.3.0",
     "husky": "^9.1.6"
