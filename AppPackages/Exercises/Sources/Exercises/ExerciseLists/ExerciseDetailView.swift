@@ -123,7 +123,8 @@ extension ExerciseDetailView {
 			let service = ExerciseSet.Service(modelContainer: container)
 			do {
 				try await service.deleteSet(for: [id])
-			} catch {
+			}
+			catch {
 				print("🚨 \(#file) \(#function) \(error)")
 			}
 		}
