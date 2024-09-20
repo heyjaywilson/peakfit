@@ -36,11 +36,10 @@ jobs:
         
         if [ $UPDATED_FILES -gt 0 ]; then
           echo "Updated copyright headers in $UPDATED_FILES files"
-          git config --local user.email "heyjay@cctplus.dev"
-          git config --local user.name "Jay Wilson"
+          git config --local user.email "danger@cctplus.dev"
+          git config --local user.name "HOT COFFEE"
           git add .
           git commit -m "chore: :wrench: Add missing copyright headers to $UPDATED_FILES files"
-          git push origin HEAD:${{ github.head_ref }}
         else
           echo "All files have correct copyright headers"
         fi
@@ -48,5 +47,5 @@ jobs:
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.ref }}
+        github_token: ${{ secrets.DANGER_BOT }}
+        branch: ${{ github.head_ref }}
