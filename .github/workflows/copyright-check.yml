@@ -15,6 +15,7 @@ jobs:
         fetch-depth: 0
     
     - name: Check and Update Copyright Headers
+      id: update_copyright
       run: |
         #!/bin/bash
         set -e
@@ -42,11 +43,14 @@ jobs:
           git config --local user.name "HOT COFFEE"
           git add .
           git commit -m "chore: :wrench: Add missing copyright headers to $UPDATED_FILES files"
+          echo "files_updated=true" >> $GITHUB_OUTPUT
         else
           echo "All files have correct copyright headers"
+          echo "files_updated=false" >> $GITHUB_OUTPUT
         fi
 
     - name: Push changes
+      if: steps.update_copyright.outputs.files_updated == 'true'
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.DANGER_BOT }}
