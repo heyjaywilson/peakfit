@@ -65,7 +65,6 @@ struct ExerciseListDetailView: View {
 							systemImage: "trash"
 						)
 					}
-
 				}
 			}
 		}
