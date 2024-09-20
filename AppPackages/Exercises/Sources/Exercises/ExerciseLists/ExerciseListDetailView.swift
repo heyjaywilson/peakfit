@@ -54,6 +54,18 @@ struct ExerciseListDetailView: View {
 						}
 					}
 				}
+				.swipeActions(edge: .trailing) {
+					Button(
+						role: .destructive) {
+							deleteExercise(exercise)
+						} label: {
+							Label(
+								"Delete",
+								systemImage: "trash"
+							)
+						}
+
+				}
 			}
 		}
 		.navigationTitle(Text(exerciseList.name))
@@ -67,4 +79,20 @@ struct ExerciseListDetailView: View {
 		)
 	}
 	.modelContainer(ExerciseList.previewModel)
+}
+
+extension ExerciseListDetailView {
+	func deleteExercise(_ exercise: Exercise) {
+		let exerciseID = exercise.persistentModelID
+		let container = modelContext.container
+		Task.detached(priority: .userInitiated) {
+			let service = Exercise.Service(modelContainer: container)
+			do {
+				try await service.delete(for: [exerciseID])
+			}
+			catch {
+				print(#file, #function, "Error deleting exercise: \(error)")
+			}
+		}
+	}
 }
