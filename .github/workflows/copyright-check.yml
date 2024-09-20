@@ -3,6 +3,8 @@ name: Copyright Check and Update
 on:
   pull_request:
     branches: [ main ]
+permissions:
+  contents: write
 
 jobs:
   copyright-check:
@@ -48,4 +50,4 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.DANGER_BOT }}
-        branch: ${{ github.head_ref }}
+        branch: ${{ github.ref }}
