@@ -20,7 +20,7 @@ categories:
       - 'ci'
       - 'docs'
       - 'test'
-change-template: '- $TITLE @$AUTHOR #NUMBER'
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 version-resolver:
   major:
     labels:
