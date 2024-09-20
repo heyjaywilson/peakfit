@@ -12,8 +12,8 @@
 // -----------------------------------------------------------
 //
 
-import SwiftData
 import Foundation
+import SwiftData
 
 extension ExerciseSet {
 	@ModelActor
@@ -32,7 +32,8 @@ extension ExerciseSet {
 		private func save() throws {
 			do {
 				try modelContext.save()
-			} catch {
+			}
+			catch {
 				print("🚨 \(#file) \(#function) \(error)")
 				throw error
 			}

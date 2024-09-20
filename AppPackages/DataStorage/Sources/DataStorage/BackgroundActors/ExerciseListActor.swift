@@ -24,6 +24,7 @@ import SwiftData
 extension ExerciseList {
 	@ModelActor
 	public actor Service {
+		/// Delete lists for given persistent identifiers
 		public func deleteList(for ids: [PersistentIdentifier]) throws {
 			for id in ids {
 				guard let list = self[id, as: ExerciseList.self] else {
@@ -35,6 +36,7 @@ extension ExerciseList {
 			}
 		}
 
+		/// Save the modelContext as it is right now
 		private func save() throws {
 			do {
 				try modelContext.save()
