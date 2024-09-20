@@ -4,7 +4,9 @@
   "description": "SwiftUI app to track your exercise",
   "scripts": {
     "prepare": "husky",
-    "format": "swift-format format . -r --configuration .swift-format.json -i"
+    "emojify": "npx --no-install devmoji -e --format shortcode",
+    "format": "swift-format format . -r --configuration .swift-format.json -i",
+    "format-changes": ". ./scripts/format-changes.sh"
   },
   "author": "heyjaywilson",
   "license": "Apache-2.0",
