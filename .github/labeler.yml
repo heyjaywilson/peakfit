@@ -1,0 +1,48 @@
+version: v1
+
+labels:
+  - label: 'enhancement'
+    sync: true
+    matcher:
+      title: "^feat.*"
+      branch: "^feat.*"
+  - label: 'fix'
+    sync: true
+    matcher:
+      title: "^fix.*"
+      branch: "^fix.*"
+  - label: 'docs'
+    sync: true
+    matcher:
+      title: "^docs.*"
+      branch: "^docs.*"
+  - label: 'chore'
+    sync: true
+    matcher:
+      title: "^chore.*"
+      branch: "^chore.*"
+  - label: 'chore'
+    sync: true
+    matcher:
+      title: "^refactor.*"
+      branch: "^refactor.*"
+  - label: 'chore'
+    sync: true
+    matcher:
+      title: "^ci.*"
+      branch: "^ci.*"
+  - label: 'test'
+    sync: true
+    matcher:
+      title: "^test.*"
+      branch: "^test.*"
+  - label: 'breaking 🚨'
+    sync: true
+    matcher:
+      title: "^.*!.*$"
+  # ISSUE
+  - label: 'bug'
+    sync: true
+    matcher:
+      title: '^bug:.*'
+      body: "(\\n|.)*- \\[x\\] bug(\\n|.)*"
