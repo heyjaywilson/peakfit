@@ -1,9 +1,6 @@
 name-template: 'v$RESOLVED_VERSION'
 tag-template: '$RESOLVED_VERSION'
 categories:
-  - title: '🚨 BREAKING CHANGES'
-    labels:
-      - 'breaking 🚨'
   - title: '🚀 Features'
     labels:
       - 'feature'
@@ -18,11 +15,14 @@ categories:
       - 'ci'
       - 'docs'
       - 'test'
+      - 'refactor'
+      - 'style'
+      - 'build'
 change-template: '- $TITLE #$NUMBER @$AUTHOR'
 version-resolver:
   major:
     labels:
-      - 'breaking'
+      - 'major'
   minor:
     labels:
       - 'feature'
@@ -32,6 +32,8 @@ version-resolver:
       - 'fix'
       - 'bug'
       - 'chore'
+      - 'refactor'
+      - 'style'
 template: |
   ##  What's Changed
 
