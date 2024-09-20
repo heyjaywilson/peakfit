@@ -1,0 +1,52 @@
+name: Copyright Check and Update
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  copyright-check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    
+    - name: Check and Update Copyright Headers
+      run: |
+        #!/bin/bash
+        set -e
+        
+        NOTICE="// Copyright 2024 CCT Plus LLC
+        //
+        // Licensed under the Apache License, Version 2.0 (the \"License\");
+        // you may obtain a copy of the License at
+        //
+        //     http://www.apache.org/licenses/LICENSE-2.0"
+        
+        UPDATED_FILES=0
+        
+        for file in $(find . -name "*.swift"); do
+          if ! grep -q "Copyright 2024 CCT Plus LLC" "$file"; then
+            echo "Adding copyright header to $file"
+            echo "$NOTICE" | cat - "$file" > temp && mv temp "$file"
+            UPDATED_FILES=$((UPDATED_FILES+1))
+          fi
+        done
+        
+        if [ $UPDATED_FILES -gt 0 ]; then
+          echo "Updated copyright headers in $UPDATED_FILES files"
+          git config --local user.email "heyjay@cctplus.dev"
+          git config --local user.name "Jay Wilson"
+          git add .
+          git commit -m "chore: :wrench: Add missing copyright headers to $UPDATED_FILES files"
+          git push
+        else
+          echo "All files have correct copyright headers"
+        fi
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
