@@ -32,7 +32,7 @@ A way to track strength exercises
 - [x] Swipe to delete list
 - [x] Swipe to delete set
 - [x] Swipe to delete exercise from a list
-- [ ] Swipe to repeat set
+- [x] Swipe to repeat set
 - [ ] Timer for break
 - [ ] Settings for timer 
 - [ ] Settings for weight units
