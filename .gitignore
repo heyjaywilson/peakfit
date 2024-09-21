@@ -10,3 +10,4 @@ xcuserdata/
 Package.resolved
 node_modules
 .env
+AppPackages/Days/.build

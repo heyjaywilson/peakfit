@@ -39,5 +39,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_TITLE: ${{ github.event.pull_request.title }}
         run: |
-          NEW_TITLE=$(echo "$PR_TITLE" | devmoji --input - --format shortcode)
+          NEW_TITLE=$(echo "$PR_TITLE" | devmoji --format shortcode)
           gh pr edit ${{ github.event.pull_request.number }} --title "$NEW_TITLE"
