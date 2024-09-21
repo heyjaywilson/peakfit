@@ -50,11 +50,31 @@ extension ExerciseSet {
 			try save()
 		}
 
+		public func hasSet(for date: Date) throws -> Bool {
+			let calendar = Calendar.current
+			let startOfDay = calendar.startOfDay(for: date)
+			let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)!
+
+			let predicate = #Predicate<ExerciseSet> { exerciseSet in
+				exerciseSet.completedDate >= startOfDay && exerciseSet.completedDate < endOfDay
+			}
+
+			var descriptor = FetchDescriptor<ExerciseSet>(predicate: predicate)
+			descriptor.fetchLimit = 1  // We only need to know if at least one exists
+
+			do {
+				let sets = try modelContext.fetch(descriptor)
+				return !sets.isEmpty
+			} catch {
+				print("🚨 \(#file) \(#function) Error fetching sets: \(error)")
+				throw error
+			}
+		}
+
 		private func save() throws {
 			do {
 				try modelContext.save()
-			}
-			catch {
+			} catch {
 				print("🚨 \(#file) \(#function) \(error)")
 				throw error
 			}
