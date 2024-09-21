@@ -25,7 +25,7 @@ jobs:
 
       - uses: amannn/action-semantic-pull-request@v5
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DANGER_BOT }}
         with:
           subjectPattern: ^(?![A-Z]).+$
           subjectPatternError: |
@@ -36,7 +36,7 @@ jobs:
 
       - name: Update PR title with emoji
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DANGER_BOT }}
           PR_TITLE: ${{ github.event.pull_request.title }}
         run: |
           NEW_TITLE=$(echo "$PR_TITLE" | devmoji --format shortcode)
