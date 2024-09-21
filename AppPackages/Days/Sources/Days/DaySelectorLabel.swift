@@ -15,7 +15,7 @@
 import SwiftUI
 import Utilities
 
-struct Day: View {
+struct DaySelectorLabel: View {
 	var isSelected: Bool = false
 
 	var date: Date
@@ -62,7 +62,7 @@ struct Day: View {
 }
 
 #Preview("Only day") {
-	Day(date: .now)
+	DaySelectorLabel(date: .now)
 		.frame(
 			width: 100,
 			height: 100
@@ -74,7 +74,7 @@ struct Day: View {
 		LazyHStack {
 			HStack {
 				ForEach(0..<7) { index in
-					Day(
+					DaySelectorLabel(
 						isSelected: index == 2, date: .now
 					)
 					.containerRelativeFrame(

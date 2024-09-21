@@ -41,7 +41,7 @@ public struct DaysView: View {
 						Button {
 							selectedDate = calendarDay.date
 						} label: {
-							Day(
+							DaySelectorLabel(
 								isSelected: Calendar.current.isDate(
 									selectedDate ?? .now, inSameDayAs: calendarDay.date),
 								date: calendarDay.date)
@@ -56,11 +56,7 @@ public struct DaysView: View {
 			}
 			.contentMargins(16, for: .scrollContent)
 			.frame(height: 100)
-			ScrollView {
-				Text(
-					calendarDays.first(where: { $0.date == selectedDate })?.hasExercises ?? false
-						? "Exercises founnd" : "No exercises found")
-			}
+			DayDetailView(day: selectedDate ?? .now)
 		}
 		.task {
 			await getCurrentWeekDays()

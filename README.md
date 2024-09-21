@@ -49,3 +49,4 @@ This is a future feature idea list
 
 - [ ] Archive a list
 - [ ] Duplicate a list
+- [ ] Figure out how to only animate when the view is exiting at the top
