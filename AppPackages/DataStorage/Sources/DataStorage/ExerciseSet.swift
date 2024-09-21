@@ -27,7 +27,7 @@ final public class ExerciseSet {
 	public var weight: Double
 	public var completedDate: Date
 
-	var exercise: Exercise?
+	public var exercise: Exercise?
 
 	public init(reps: Int, weight: Double, dateCompleted: Date) {
 		self.reps = reps

@@ -6,8 +6,8 @@
 //     http://www.apache.org/licenses/LICENSE-2.0
 //
 // -----------------------------------------------------------
-// Project: AppEntry
-// Created on 9/11/24 by @HeyJayWilson
+// Project: Utilities
+// Created on 9/20/24 by @HeyJayWilson
 // -----------------------------------------------------------
 // Find HeyJayWilson on the web:
 // 🕸️ Website             https://heyjaywilson.com
@@ -18,25 +18,15 @@
 // -----------------------------------------------------------
 //
 
-import Days
-import Exercises
-import SwiftUI
+import Foundation
 
-public struct AppEntry: View {
-	public init() {}
-
-	public var body: some View {
-		TabView {
-			Tab("Sets", systemImage: "dumbbell") {
-				ExerciseListView()
-			}
-			Tab("Days", systemImage: "calendar") {
-				DaysView()
-			}
-		}
-	}
-}
-
-#Preview {
-	AppEntry()
+public struct DateFormatters {
+	/// Returns an abbreviated day string
+	///
+	/// Ex: mon for Monday or fri for Friday
+	public static let abbreviatedDayString: DateFormatter = {
+		let formatter = DateFormatter()
+		formatter.dateFormat = "EEE"
+		return formatter
+	}()
 }

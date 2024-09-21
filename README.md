@@ -33,10 +33,10 @@ A way to track strength exercises
 - [x] Swipe to delete set
 - [x] Swipe to delete exercise from a list
 - [x] Swipe to repeat set
+- [ ] Show exercises done on a calendar
 - [ ] Timer for break
 - [ ] Settings for timer 
 - [ ] Settings for weight units
-- [ ] Show exercises done on a calenda
 
 ## Non user facing tasks
 - [ ] Implement logger
@@ -49,3 +49,4 @@ This is a future feature idea list
 
 - [ ] Archive a list
 - [ ] Duplicate a list
+- [ ] Figure out how to only animate when the view is exiting at the top
