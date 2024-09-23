@@ -21,6 +21,18 @@
 import DataStorage
 import SwiftData
 import SwiftUI
+import Utilities
+
+struct Week: Identifiable {
+	var id: Int {
+		Int(startDate.timeIntervalSince1970 + endDate.timeIntervalSince1970)
+	}
+
+	var startDate: Date
+	var endDate: Date
+
+	var days: [CalendarDay]
+}
 
 struct CalendarDay: Identifiable {
 	var id: Double {
@@ -34,39 +46,56 @@ struct CalendarDay: Identifiable {
 public struct DaysView: View {
 	@Environment(\.modelContext) private var modelContext
 
-	@State private var calendarDays: [CalendarDay] = []
-	@State private var selectedDate: Date?
+	@State private var weeks: [Week] = []
+	@State private var selectedDate: Date? = .now
+	@State private var weekPosition: Week.ID?
+
+	var monthShown: String {
+		guard let currentWeek = weeks.first(where: { $0.id == weekPosition }) else {
+			return ""
+		}
+
+		return DateFormatters.abbreviatedMonthString.string(from: currentWeek.startDate)
+	}
 
 	public init() {}
 
 	public var body: some View {
-		VStack {
+		VStack(alignment: .leading, spacing: 0) {
+			Text(monthShown + "\(weekPosition ?? 0)")
+				.font(.title2)
+				.fontDesign(.rounded)
+				.bold()
+				.foregroundStyle(.secondary)
+				.padding(.leading, 24)
+				.task {
+					await addWeek(for: .now)
+					weekPosition = weeks.first?.id
+				}
 			ScrollView(.horizontal) {
 				LazyHStack {
-					ForEach(calendarDays) { calendarDay in
-						Button {
-							selectedDate = calendarDay.date
-						} label: {
-							DaySelectorLabel(
-								isSelected: Calendar.current.isDate(
-									selectedDate ?? .now, inSameDayAs: calendarDay.date),
-								date: calendarDay.date)
-						}
-						.containerRelativeFrame(
-							.horizontal,
-							count: 7,
-							spacing: 8
-						)
+					ForEach(weeks) { week in
+						WeekView(selectedDate: $selectedDate, week: week)
+							.id(week.id)
+							.containerRelativeFrame(
+								.horizontal, count: 1, spacing: 16, alignment: .center
+							)
+							.task {
+								let previousWeekDate = getDateForPreviousWeek(from: week.startDate)
+								Task {
+									await addWeek(for: previousWeekDate)
+								}
+							}
 					}
 				}
+				.scrollTargetLayout()
 			}
-			.contentMargins(16, for: .scrollContent)
+			.scrollTargetBehavior(.viewAligned)
+			.scrollPosition(id: $weekPosition)
+			.scrollIndicators(.hidden)
 			.frame(height: 100)
-			DayDetailView(day: selectedDate ?? .now)
 		}
-		.task {
-			await getCurrentWeekDays()
-		}
+		DayDetailView(day: selectedDate ?? .now)
 	}
 }
 
@@ -75,46 +104,60 @@ public struct DaysView: View {
 }
 
 extension DaysView {
-	func getCurrentWeekDays() async {
-		let calendar = Calendar.current
-		let today = Date()
-		let container = modelContext.container
-
-		// Find the start of the week (assuming Sunday is the first day of the week)
-		guard
-			let startOfWeek = calendar.date(
-				from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: today))
-		else {
-			return
+	func addWeek(for date: Date) async {
+		let beginningOfWeek = getBeginningOfWeek(for: date)
+		let week = await makeWeek(for: beginningOfWeek)
+		// check if week already exists in weeks
+		if !weeks.contains(where: { $0.id == week.id }) {
+			print("🟢 Week does not exist. Adding to Weeks")
+			await MainActor.run {
+				weeks.insert(week, at: 0)
+			}
+		} else {
+			print("⚠️ Week already exists so not adding to weeks")
 		}
+	}
 
-		// Generate 7 days starting from the start of the week
-		let generatedCalendarDays = await withTaskGroup(of: CalendarDay?.self) { group in
+	func getBeginningOfWeek(for date: Date) -> Date {
+		let calendar = Calendar.current
+		let beginningOfWeek = calendar.date(
+			from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: date))!
+		return beginningOfWeek
+	}
+
+	func getEndOfWeek(for date: Date) -> Date {
+		let calendar = Calendar.current
+		let endOfWeek = calendar.date(byAdding: .day, value: 6, to: getBeginningOfWeek(for: date))!
+		return endOfWeek
+	}
+
+	func makeWeek(for beginningOfWeek: Date) async -> Week {
+		let calendar = Calendar.current
+		let container = modelContext.container
+		let service = ExerciseSet.Service(modelContainer: container)
+
+		let days = await withTaskGroup(of: CalendarDay.self) { group in
 			for dayOffset in 0..<7 {
 				group.addTask {
-					guard
-						let date = calendar.date(byAdding: .day, value: dayOffset, to: startOfWeek)
-					else {
-						return nil
-					}
-					let service = ExerciseSet.Service(modelContainer: container)
+					let date = calendar.date(byAdding: .day, value: dayOffset, to: beginningOfWeek)!
 					let hasExercise = (try? await service.hasSet(for: date)) ?? false
 					return CalendarDay(date: date, hasExercises: hasExercise)
 				}
 			}
 
 			var results: [CalendarDay] = []
-			for await result in group {
-				if let result = result {
-					results.append(result)
-				}
+			for await day in group {
+				results.append(day)
 			}
 			return results.sorted { $0.date < $1.date }
 		}
-		await MainActor.run {
-			// Set the selected date to today
-			selectedDate = today
-			calendarDays = generatedCalendarDays
-		}
+
+		return Week(startDate: beginningOfWeek, endDate: days.last!.date, days: days)
+	}
+
+	func getDateForPreviousWeek(from date: Date) -> Date {
+		let calendar = Calendar.current
+		let newDate = calendar.date(byAdding: .day, value: -1, to: date)!
+		return newDate
 	}
 }
