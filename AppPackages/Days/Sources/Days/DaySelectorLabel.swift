@@ -41,16 +41,16 @@ struct DaySelectorLabel: View {
 			Text(dayOfWeek)
 				.font(.caption)
 				.textCase(.uppercase)
-				.fontDesign(.monospaced)
+				.fontDesign(.rounded)
 			Text(dayOfMonth.formatted())
-				.fontDesign(.monospaced)
+				.fontDesign(.rounded)
 				.fontWeight(.bold)
 		}
 		.foregroundStyle(
-			isSelected ? .white : .primary
+			isSelected ? .white : .secondary
 		)
-		.frame(maxWidth: .infinity, maxHeight: 100)
-		.aspectRatio(3 / 4, contentMode: .fit)
+		.frame(maxWidth: .infinity, maxHeight: .infinity)
+		.aspectRatio(0.75, contentMode: .fit)
 		.background {
 			RoundedRectangle(cornerRadius: 10, style: .continuous)
 				.fill(
@@ -62,7 +62,7 @@ struct DaySelectorLabel: View {
 		}
 		.overlay {
 			RoundedRectangle(cornerRadius: 10, style: .continuous)
-				.stroke(Color.accentColor, lineWidth: 2)
+				.stroke(isSelected ? Color.accentColor : Color.secondary, lineWidth: 2)
 		}
 	}
 }
@@ -90,8 +90,22 @@ struct DaySelectorLabel: View {
 					)
 				}
 			}
+			HStack {
+				ForEach(0..<7) { index in
+					DaySelectorLabel(
+						isSelected: index == 2, date: .now
+					)
+					.containerRelativeFrame(
+						.horizontal,
+						count: 7,
+						spacing: 8
+					)
+				}
+			}
 		}
+		.scrollTargetLayout()
 	}
+	.scrollTargetBehavior(.viewAligned)
 	.contentMargins(
 		16,
 		for: .scrollContent
