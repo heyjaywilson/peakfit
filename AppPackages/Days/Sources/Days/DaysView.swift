@@ -50,41 +50,51 @@ public struct DaysView: View {
 	public init() {}
 
 	public var body: some View {
-		VStack(alignment: .leading, spacing: 0) {
-			Text(monthShown + "\(weekPosition ?? 0)")
-				.font(.title2)
-				.fontDesign(.rounded)
-				.bold()
-				.foregroundStyle(.secondary)
-				.padding(.leading, 24)
-				.task {
-					await addWeek(for: .now)
-					weekPosition = weeks.first?.id
-				}
-			ScrollView(.horizontal) {
-				LazyHStack {
-					ForEach(weeks) { week in
-						WeekView(selectedDate: $selectedDate, week: week)
-							.id(week.id)
-							.containerRelativeFrame(
-								.horizontal, count: 1, spacing: 16, alignment: .center
-							)
-							.task {
-								let previousWeekDate = getDateForPreviousWeek(from: week.startDate)
-								Task {
-									await addWeek(for: previousWeekDate)
+		NavigationStack {
+			VStack(alignment: .leading, spacing: 0) {
+				Text(monthShown + "\(weekPosition ?? 0)")
+					.font(.title2)
+					.fontDesign(.rounded)
+					.bold()
+					.foregroundStyle(.secondary)
+					.padding(.leading, 24)
+					.task {
+						await addWeek(for: .now)
+						weekPosition = weeks.first?.id
+					}
+				ScrollView(.horizontal) {
+					LazyHStack {
+						ForEach(weeks) { week in
+							WeekView(selectedDate: $selectedDate, week: week)
+								.id(week.id)
+								.containerRelativeFrame(
+									.horizontal, count: 1, spacing: 16, alignment: .center
+								)
+								.task {
+									let previousWeekDate = getDateForPreviousWeek(
+										from: week.startDate)
+									Task {
+										await addWeek(for: previousWeekDate)
+									}
 								}
-							}
+						}
+					}
+					.scrollTargetLayout()
+				}
+				.scrollTargetBehavior(.viewAligned)
+				.scrollPosition(id: $weekPosition)
+				.scrollIndicators(.hidden)
+				.frame(height: 100)
+			}
+			DayDetailView(day: selectedDate ?? .now)
+				.toolbar {
+					ToolbarItem {
+						Button("Calendar", systemImage: "calendar") {
+							print("Open calendar")
+						}
 					}
 				}
-				.scrollTargetLayout()
-			}
-			.scrollTargetBehavior(.viewAligned)
-			.scrollPosition(id: $weekPosition)
-			.scrollIndicators(.hidden)
-			.frame(height: 100)
 		}
-		DayDetailView(day: selectedDate ?? .now)
 	}
 }
 

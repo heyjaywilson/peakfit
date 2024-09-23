@@ -28,6 +28,15 @@ public struct DateFormatters {
 		return formatter
 	}()
 
+	/// Formatter that can return a month
+	///
+	/// Ex: September
+	public static let monthString: DateFormatter = {
+		let formatter = DateFormatter()
+		formatter.dateFormat = "MMMM"
+		return formatter
+	}()
+
 	/// Formatter that can return or make a date using year - month - date
 	///
 	/// Ex: 2024-09-24
