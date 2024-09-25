@@ -1,22 +1,11 @@
 // Copyright 2024 CCT Plus LLC
-//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may obtain a copy of the License at
-//
 //     http://www.apache.org/licenses/LICENSE-2.0
-//
 // -----------------------------------------------------------
 // Project: Exercises
 // Created on 9/13/24 by @HeyJayWilson
 // -----------------------------------------------------------
-// Find HeyJayWilson on the web:
-// 🕸️ Website             https://heyjaywilson.com
-// 💻 Follow on GitHub:   https://github.com/heyjaywilson
-// 🧵 Follow on Threads:  https://threads.net/@heyjaywilson
-// 💭 Follow on Mastodon: https://iosdev.space/@heyjaywilson
-// ☕ Buy me a ko-fi:     https://ko-fi.com/heyjaywilson
-// -----------------------------------------------------------
-//
 
 import DataStorage
 import SwiftData
@@ -44,8 +33,7 @@ struct ExerciseDetailView: View {
 		Group {
 			if exercise.sets.isEmpty {
 				noSetsView
-			}
-			else {
+			} else {
 				setListView
 			}
 		}
@@ -72,8 +60,7 @@ struct ExerciseDetailView: View {
 	NavigationStack {
 		if let exercise = exercises.first {
 			ExerciseDetailView(for: exercise.name)
-		}
-		else {
+		} else {
 			Text("No exercise found")
 		}
 	}
@@ -134,8 +121,7 @@ extension ExerciseDetailView {
 			let service = ExerciseSet.Service(modelContainer: container)
 			do {
 				try await service.deleteSet(for: [id])
-			}
-			catch {
+			} catch {
 				print("🚨 \(#file) \(#function) \(error)")
 			}
 		}
@@ -155,8 +141,7 @@ extension ExerciseDetailView {
 					weight: weight,
 					reps: reps
 				)
-			}
-			catch {
+			} catch {
 				print("🚨 \(#file) \(#function) \(error)")
 			}
 		}

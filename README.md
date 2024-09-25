@@ -40,3 +40,10 @@ These commands are available once you have installed the prerequisites and have 
 If there are any questions, please open a [discussion](https://github.com/heyjaywilson/peakfit/discussions/new).
 
 For more details around contributing see [the docs](https://github.com/heyjaywilson/peakfit/.github/CONTRIBUTING.md)
+
+## Resources for coding conventions
+
+- [Swift API Design Guidelines](https://swift.org/documentation/api-design-guidelines/)
+- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+
+## Docs
