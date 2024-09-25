@@ -7,8 +7,11 @@ An app to track your strength training workouts.
 ### Prerequisites
 
 - [Node.js](https://nodejs.org) is needed for git hooks
-- Xcode 16 (@heyjaywilson suggests using the [Xcodes app](https://github.com/XcodesOrg/XcodesApp) to manage Xcode versions)
+    - How to install node instructions can be found [here](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs). @heyjaywilson suggests using the prebuilt installer for the current version
+- Xcode 16.0 (@heyjaywilson suggests using the [Xcodes app](https://github.com/XcodesOrg/XcodesApp) to manage Xcode versions)
 - [swift-format](https://github.com/apple/swift-format#getting-swift-format)
+    - How to install instructions can be found [here](https://github.com/swiftlang/swift-format#installing-via-homebrew)
+    - You need swift-format installed because the formatting hooks use the command `swift-format` and not `swift format` which is the command that comes with Xcode 16
 
 ### Steps
 
@@ -39,11 +42,9 @@ These commands are available once you have installed the prerequisites and have 
 
 If there are any questions, please open a [discussion](https://github.com/heyjaywilson/peakfit/discussions/new).
 
-For more details around contributing see [the docs](https://github.com/heyjaywilson/peakfit/.github/CONTRIBUTING.md)
+For more details around contributing see [the contributing file](https://github.com/heyjaywilson/peakfit/blob/main/.github/CONTRIBUTING.MD)
 
 ## Resources for coding conventions
 
 - [Swift API Design Guidelines](https://swift.org/documentation/api-design-guidelines/)
 - [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
-
-## Docs
