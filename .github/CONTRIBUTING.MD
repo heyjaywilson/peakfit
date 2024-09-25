@@ -62,7 +62,5 @@ After step 4, @heyjaywilson will more than likely merge your changes in 🎉
 
 ---
 
----
-
 Thanks,
 Jay
