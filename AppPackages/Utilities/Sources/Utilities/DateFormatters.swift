@@ -45,6 +45,15 @@ public struct DateFormatters {
 		formatter.dateFormat = "yyyy-MM-dd"
 		return formatter
 	}()
+
+	/// Single letter for the day of the week
+	///
+	/// ex: M for Monday
+	public let singleLetterDay: DateFormatter = {
+		let formatter: DateFormatter = DateFormatter()
+		formatter.dateFormat = "EEEEE"
+		return formatter
+	}()
 }
 
 extension Date {

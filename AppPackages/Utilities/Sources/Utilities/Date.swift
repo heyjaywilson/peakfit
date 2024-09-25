@@ -30,4 +30,10 @@ extension Date {
 		}
 		return weekdays.map { $0.capitalized }
 	}()
+
+	public static let shortWeekdaySymbols: [String] = {
+		let calendar = Calendar.current
+		// return the first letter of each weekday
+		return []
+	}()
 }
