@@ -11,6 +11,7 @@ import Foundation
 import SwiftData
 
 extension ExerciseSet {
+	/// This service is responsible for managing ExerciseSets in the database. It is used to do any writing to the database.
 	@ModelActor
 	public actor Service {
 		public func deleteSet(for ids: [PersistentIdentifier]) throws {

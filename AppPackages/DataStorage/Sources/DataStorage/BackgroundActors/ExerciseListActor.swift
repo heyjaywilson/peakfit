@@ -11,6 +11,7 @@ import Foundation
 import SwiftData
 
 extension ExerciseList {
+	/// This service is responsible for managing ExerciseLists in the database. It is used to do any writing to the database.
 	@ModelActor
 	public actor Service {
 		/// Delete lists for given persistent identifiers
