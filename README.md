@@ -2,6 +2,10 @@
 
 An app to track your strength training workouts.
 
+![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/heyjaywilson/peakfit) ![GitHub contributors](https://img.shields.io/github/contributors/heyjaywilson/peakfit) ![GitHub Repo stars](https://img.shields.io/github/stars/heyjaywilson/peakfit)
+
+
+
 ## :hammer: Project Setup
 
 ### Prerequisites
@@ -13,13 +17,23 @@ An app to track your strength training workouts.
     - How to install instructions can be found [here](https://github.com/swiftlang/swift-format#installing-via-homebrew)
     - You need swift-format installed because the formatting hooks use the command `swift-format` and not `swift format` which is the command that comes with Xcode 16
 
-### Steps
+### Building and Running the App
 
 1. Clone the repo
 2. Navigate into the repo via the command line
 3. Run `npm prepare` to install git hooks
+4. Open the Xcode project
+5. Remove the template suffix from `PeakFit/Resources/Project.xcconfig.template` so that it is just `PeakFit/Resources/Project.xcconfig`
+6. Set your development team in the `PeakFit/Resources/Project.xcconfig` file
+7. Set the PRODUCT_BUNDLE_IDENTIFIER to one that is unique to your development team
+8. Build the project
 
-## Commands
+### Resources for coding conventions
+
+- [Swift API Design Guidelines](https://swift.org/documentation/api-design-guidelines/)
+- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+
+### Commands
 
 These commands are available once you have installed the prerequisites and have run `npm prepare`.
 
@@ -44,7 +58,15 @@ If there are any questions, please open a [discussion](https://github.com/heyjay
 
 For more details around contributing see [the contributing file](https://github.com/heyjaywilson/peakfit/blob/main/.github/CONTRIBUTING.MD)
 
-## Resources for coding conventions
 
-- [Swift API Design Guidelines](https://swift.org/documentation/api-design-guidelines/)
-- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+### Contributors
+
+<a href="https://github.com/heyjaywilson/peakfit/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=heyjaywilson/peakfit" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
+
+## License
+
+This project is licensed under the Apache License, Version 2.0. See the [LICENSE](./LICENSE) file for more details.

@@ -1,0 +1,622 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		69448CA12C91386100E1E698 /* DataStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 69448CA02C91386100E1E698 /* DataStorage */; };
+		698118A42C9279A30058923B /* AppEntry in Frameworks */ = {isa = PBXBuildFile; productRef = 698118A32C9279A30058923B /* AppEntry */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		69448C802C91323E00E1E698 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69448C632C91323D00E1E698 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 69448C6A2C91323D00E1E698;
+			remoteInfo = PeakFit;
+		};
+		69448C8A2C91323E00E1E698 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69448C632C91323D00E1E698 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 69448C6A2C91323D00E1E698;
+			remoteInfo = PeakFit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6912DBFC2C9C62810021ACB2 /* AppEntry */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AppEntry; path = AppPackages/AppEntry; sourceTree = "<group>"; };
+		69448C6B2C91323D00E1E698 /* PeakFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeakFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		69448C7F2C91323E00E1E698 /* PeakFitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeakFitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		69448C892C91323E00E1E698 /* PeakFitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeakFitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		69448C9E2C9133DC00E1E698 /* DataStorage */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DataStorage; path = AppPackages/DataStorage; sourceTree = "<group>"; };
+		698118A52C927BD00058923B /* Exercises */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Exercises; path = AppPackages/Exercises; sourceTree = "<group>"; };
+		6994175D2C95FE760091E6DD /* Utilities */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Utilities; path = AppPackages/Utilities; sourceTree = "<group>"; };
+		69F0834F2C9DBCEF005CE026 /* Days */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Days; path = AppPackages/Days; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		69448C912C91323E00E1E698 /* Exceptions for "PeakFit" folder in "PeakFit" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 69448C6A2C91323D00E1E698 /* PeakFit */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		69448C6D2C91323D00E1E698 /* PeakFit */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				69448C912C91323E00E1E698 /* Exceptions for "PeakFit" folder in "PeakFit" target */,
+			);
+			path = PeakFit;
+			sourceTree = "<group>";
+		};
+		69448C822C91323E00E1E698 /* PeakFitTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = PeakFitTests;
+			sourceTree = "<group>";
+		};
+		69448C8C2C91323E00E1E698 /* PeakFitUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = PeakFitUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		69448C682C91323D00E1E698 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69448CA12C91386100E1E698 /* DataStorage in Frameworks */,
+				698118A42C9279A30058923B /* AppEntry in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69448C7C2C91323E00E1E698 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69448C862C91323E00E1E698 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		69448C622C91323D00E1E698 = {
+			isa = PBXGroup;
+			children = (
+				6912DBFC2C9C62810021ACB2 /* AppEntry */,
+				69F0834F2C9DBCEF005CE026 /* Days */,
+				698118A52C927BD00058923B /* Exercises */,
+				69448C9E2C9133DC00E1E698 /* DataStorage */,
+				6994175D2C95FE760091E6DD /* Utilities */,
+				69448C6D2C91323D00E1E698 /* PeakFit */,
+				69448C822C91323E00E1E698 /* PeakFitTests */,
+				69448C8C2C91323E00E1E698 /* PeakFitUITests */,
+				69448C9F2C91386100E1E698 /* Frameworks */,
+				69448C6C2C91323D00E1E698 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		69448C6C2C91323D00E1E698 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				69448C6B2C91323D00E1E698 /* PeakFit.app */,
+				69448C7F2C91323E00E1E698 /* PeakFitTests.xctest */,
+				69448C892C91323E00E1E698 /* PeakFitUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		69448C9F2C91386100E1E698 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		69448C6A2C91323D00E1E698 /* PeakFit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69448C922C91323E00E1E698 /* Build configuration list for PBXNativeTarget "PeakFit" */;
+			buildPhases = (
+				69448C672C91323D00E1E698 /* Sources */,
+				69448C682C91323D00E1E698 /* Frameworks */,
+				69448C692C91323D00E1E698 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				69448C6D2C91323D00E1E698 /* PeakFit */,
+			);
+			name = PeakFit;
+			packageProductDependencies = (
+				69448CA02C91386100E1E698 /* DataStorage */,
+				698118A32C9279A30058923B /* AppEntry */,
+			);
+			productName = PeakFit;
+			productReference = 69448C6B2C91323D00E1E698 /* PeakFit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		69448C7E2C91323E00E1E698 /* PeakFitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69448C972C91323E00E1E698 /* Build configuration list for PBXNativeTarget "PeakFitTests" */;
+			buildPhases = (
+				69448C7B2C91323E00E1E698 /* Sources */,
+				69448C7C2C91323E00E1E698 /* Frameworks */,
+				69448C7D2C91323E00E1E698 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				69448C812C91323E00E1E698 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				69448C822C91323E00E1E698 /* PeakFitTests */,
+			);
+			name = PeakFitTests;
+			packageProductDependencies = (
+			);
+			productName = PeakFitTests;
+			productReference = 69448C7F2C91323E00E1E698 /* PeakFitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		69448C882C91323E00E1E698 /* PeakFitUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69448C9A2C91323E00E1E698 /* Build configuration list for PBXNativeTarget "PeakFitUITests" */;
+			buildPhases = (
+				69448C852C91323E00E1E698 /* Sources */,
+				69448C862C91323E00E1E698 /* Frameworks */,
+				69448C872C91323E00E1E698 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				69448C8B2C91323E00E1E698 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				69448C8C2C91323E00E1E698 /* PeakFitUITests */,
+			);
+			name = PeakFitUITests;
+			packageProductDependencies = (
+			);
+			productName = PeakFitUITests;
+			productReference = 69448C892C91323E00E1E698 /* PeakFitUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		69448C632C91323D00E1E698 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					69448C6A2C91323D00E1E698 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					69448C7E2C91323E00E1E698 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 69448C6A2C91323D00E1E698;
+					};
+					69448C882C91323E00E1E698 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 69448C6A2C91323D00E1E698;
+					};
+				};
+			};
+			buildConfigurationList = 69448C662C91323D00E1E698 /* Build configuration list for PBXProject "PeakFit" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 69448C622C91323D00E1E698;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 69448C6C2C91323D00E1E698 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				69448C6A2C91323D00E1E698 /* PeakFit */,
+				69448C7E2C91323E00E1E698 /* PeakFitTests */,
+				69448C882C91323E00E1E698 /* PeakFitUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		69448C692C91323D00E1E698 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69448C7D2C91323E00E1E698 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69448C872C91323E00E1E698 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		69448C672C91323D00E1E698 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69448C7B2C91323E00E1E698 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69448C852C91323E00E1E698 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		69448C812C91323E00E1E698 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 69448C6A2C91323D00E1E698 /* PeakFit */;
+			targetProxy = 69448C802C91323E00E1E698 /* PBXContainerItemProxy */;
+		};
+		69448C8B2C91323E00E1E698 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 69448C6A2C91323D00E1E698 /* PeakFit */;
+			targetProxy = 69448C8A2C91323E00E1E698 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		69448C932C91323E00E1E698 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PeakFit/PeakFit.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PeakFit/Preview Content\"";
+				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PeakFit/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		69448C942C91323E00E1E698 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PeakFit/PeakFit.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PeakFit/Preview Content\"";
+				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PeakFit/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		69448C952C91323E00E1E698 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 69448C6D2C91323D00E1E698 /* PeakFit */;
+			baseConfigurationReferenceRelativePath = Resources/Project.xcconfig;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		69448C962C91323E00E1E698 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 69448C6D2C91323D00E1E698 /* PeakFit */;
+			baseConfigurationReferenceRelativePath = Resources/Project.xcconfig;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		69448C982C91323E00E1E698 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZDK82FGR3Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.cctplus.PeakFitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PeakFit.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PeakFit";
+			};
+			name = Debug;
+		};
+		69448C992C91323E00E1E698 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZDK82FGR3Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.cctplus.PeakFitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PeakFit.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PeakFit";
+			};
+			name = Release;
+		};
+		69448C9B2C91323E00E1E698 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZDK82FGR3Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.cctplus.PeakFitUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PeakFit;
+			};
+			name = Debug;
+		};
+		69448C9C2C91323E00E1E698 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZDK82FGR3Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.cctplus.PeakFitUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PeakFit;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		69448C662C91323D00E1E698 /* Build configuration list for PBXProject "PeakFit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69448C952C91323E00E1E698 /* Debug */,
+				69448C962C91323E00E1E698 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69448C922C91323E00E1E698 /* Build configuration list for PBXNativeTarget "PeakFit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69448C932C91323E00E1E698 /* Debug */,
+				69448C942C91323E00E1E698 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69448C972C91323E00E1E698 /* Build configuration list for PBXNativeTarget "PeakFitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69448C982C91323E00E1E698 /* Debug */,
+				69448C992C91323E00E1E698 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69448C9A2C91323E00E1E698 /* Build configuration list for PBXNativeTarget "PeakFitUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69448C9B2C91323E00E1E698 /* Debug */,
+				69448C9C2C91323E00E1E698 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		69448CA02C91386100E1E698 /* DataStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DataStorage;
+		};
+		698118A32C9279A30058923B /* AppEntry */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppEntry;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 69448C632C91323D00E1E698 /* Project object */;
+}

@@ -10,6 +10,7 @@
 import SwiftData
 
 extension Exercise {
+	/// This service is responsible for managing exercises in the database. It is used to do any writing to the database.
 	@ModelActor
 	public actor Service {
 		public func addExercise(name: String) throws {
