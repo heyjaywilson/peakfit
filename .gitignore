@@ -3,7 +3,6 @@
 /.swiftpm
 /.devContainer
 /Packages
-/*.xcodeproj
 xcuserdata/
 /.vscode/*
 !/.vscode/hummingbird.code-snippets
@@ -11,3 +10,4 @@ Package.resolved
 node_modules
 .env
 AppPackages/Days/.build
+PeakFit/Resources/Project.xcconfig
