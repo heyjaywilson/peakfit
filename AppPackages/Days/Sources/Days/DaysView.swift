@@ -12,32 +12,13 @@ import SwiftData
 import SwiftUI
 import Utilities
 
-struct Week: Identifiable {
-	var id: Int {
-		Int(startDate.timeIntervalSince1970 + endDate.timeIntervalSince1970)
-	}
-
-	var startDate: Date
-	var endDate: Date
-
-	var days: [CalendarDay]
-}
-
-struct CalendarDay: Identifiable {
-	var id: Double {
-		date.timeIntervalSince1970
-	}
-
-	var date: Date
-	var hasExercises: Bool
-}
-
 public struct DaysView: View {
 	@Environment(\.modelContext) private var modelContext
 
 	@State private var weeks: [Week] = []
 	@State private var selectedDate: Date? = .now
 	@State private var weekPosition: Week.ID?
+	@State private var openCalendar: Bool = false
 
 	var monthShown: String {
 		guard let currentWeek = weeks.first(where: { $0.id == weekPosition }) else {
@@ -90,10 +71,30 @@ public struct DaysView: View {
 				.toolbar {
 					ToolbarItem {
 						Button("Calendar", systemImage: "calendar") {
-							print("Open calendar")
+							openCalendar.toggle()
 						}
 					}
 				}
+				.sheet(isPresented: $openCalendar) {
+					// Open the calendar view to the month that was scrolled
+					CalendarMonthView(
+						selectedDate: $selectedDate,
+						date: weeks.first(where: { $0.id == weekPosition })?.startDate ?? .now
+					)
+					.presentationDetents([.medium])
+					.presentationDragIndicator(.visible)
+				}
+		}
+		// Change the scrollview position when the selected date changes
+		.onChange(of: selectedDate ?? .now) { oldValue, newValue in
+			Task {
+				await addWeek(for: newValue)
+				await MainActor.run {
+					weekPosition =
+						weeks.first(where: { $0.startDate == getBeginningOfWeek(for: newValue) })?
+						.id
+				}
+			}
 		}
 	}
 }

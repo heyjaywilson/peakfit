@@ -31,9 +31,66 @@ extension Date {
 		return weekdays.map { $0.capitalized }
 	}()
 
-	public static let shortWeekdaySymbols: [String] = {
+	public static func startOfMonth(for date: Date = .now) -> Date {
 		let calendar = Calendar.current
-		// return the first letter of each weekday
-		return []
-	}()
+		return calendar.date(from: calendar.dateComponents([.year, .month], from: date))!
+	}
+
+	public static func endOfMonth(for date: Date = .now) -> Date {
+		let calendar = Calendar.current
+		return calendar.date(byAdding: .month, value: 1, to: startOfMonth(for: date))!
+	}
+
+	public static func daysInMonth(for date: Date = .now) -> Int {
+		let calendar = Calendar.current
+		return calendar.range(of: .day, in: .month, for: date)!.count
+	}
+
+	public var weekdayInt: Int {
+		let calendar = Calendar.current
+		return calendar.component(.weekday, from: self)
+	}
+
+	public var dayOfMonth: Int {
+		let calendar = Calendar.current
+		return calendar.component(.day, from: self)
+	}
+}
+
+extension Date {
+	/// Use these as dates in SwiftUI previews
+	public struct Constants {
+		/// April 21 2024
+		public static let sunday = {
+			DateFormatters.standard.date(from: "2024-04-21")!
+		}()
+		/// April 22 2024
+		public static let monday = {
+			DateFormatters.standard.date(from: "2024-04-22")!
+		}()
+		/// April 23 2024
+		public static let tuesday = {
+			DateFormatters.standard.date(from: "2024-04-23")!
+		}()
+		/// April 24 2024
+		public static let wednesday = {
+			DateFormatters.standard.date(from: "2024-04-24")!
+		}()
+		/// April 25 2024
+		public static let thursday = {
+			DateFormatters.standard.date(from: "2024-04-25")!
+		}()
+		/// April 26 2024
+		public static let friday = {
+			DateFormatters.standard.date(from: "2024-04-26")!
+		}()
+		/// April 27 2024
+		public static let saturday = {
+			DateFormatters.standard.date(from: "2024-04-27")!
+		}()
+
+		public static let april21Thru27 = {
+			[sunday, monday, tuesday, wednesday, thursday, friday, saturday]
+		}()
+	}
 }
