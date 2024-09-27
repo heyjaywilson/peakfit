@@ -8,6 +8,7 @@
 // -----------------------------------------------------------
 
 import DataStorage
+import Design
 import SwiftData
 import SwiftUI
 
@@ -86,24 +87,18 @@ extension DayDetailView {
 			HStack {
 				VStack(alignment: .leading, spacing: 4) {
 					Text("Sets")
-						.font(.headline)
-						.fontDesign(.rounded)
+						.headline()
 					Text(exerciseSets.count.formatted())
-						.font(.title)
-						.fontWeight(.bold)
-						.fontDesign(.rounded)
+						.title()
 						.foregroundStyle(exerciseSets.isEmpty ? .secondary : Color.red)
 						.contentTransition(.numericText())
 				}
 				Spacer()
 				VStack(alignment: .leading, spacing: 4) {
 					Text("Repetitions")
-						.font(.headline)
-						.fontDesign(.rounded)
+						.headline()
 					Text(totalReps.formatted())
-						.font(.title)
-						.fontWeight(.bold)
-						.fontDesign(.rounded)
+						.title()
 						.foregroundStyle(totalReps <= 0 ? .secondary : Color.blue)
 						.contentTransition(.numericText())
 				}
@@ -111,12 +106,9 @@ extension DayDetailView {
 			HStack {
 				VStack(alignment: .leading, spacing: 4) {
 					Text("Exercises")
-						.font(.headline)
-						.fontDesign(.rounded)
+						.headline()
 					Text(exercises.count.formatted())
-						.font(.title)
-						.fontWeight(.bold)
-						.fontDesign(.rounded)
+						.title()
 						.foregroundStyle(exercises.isEmpty ? .secondary : Color.orange)
 						.contentTransition(.numericText())
 				}
@@ -142,9 +134,7 @@ extension DayDetailView {
 			} header: {
 				HStack {
 					Text(exercise.name)
-						.font(.title2)
-						.fontWeight(.bold)
-						.fontDesign(.rounded)
+						.title2()
 					Spacer()
 					HStack {
 						Text(totalReps(for: exercise).formatted())

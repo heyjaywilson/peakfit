@@ -8,6 +8,7 @@
 // -----------------------------------------------------------
 
 import DataStorage
+import Design
 import SwiftData
 import SwiftUI
 
@@ -109,6 +110,8 @@ extension ExerciseDetailView {
 						.reference(to: .now, allowedFields: [.year, .month, .day])
 					)
 				)
+				.caption()
+				.bold()
 			}
 		}
 	}

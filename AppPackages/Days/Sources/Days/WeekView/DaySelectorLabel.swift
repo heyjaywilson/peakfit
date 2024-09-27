@@ -28,12 +28,10 @@ struct DaySelectorLabel: View {
 	var body: some View {
 		VStack {
 			Text(dayOfWeek)
-				.font(.caption)
+				.caption()
 				.textCase(.uppercase)
-				.fontDesign(.rounded)
 			Text(dayOfMonth.formatted())
-				.fontDesign(.rounded)
-				.fontWeight(.bold)
+				.boldRounded()
 		}
 		.foregroundStyle(
 			isSelected ? .white : .secondary

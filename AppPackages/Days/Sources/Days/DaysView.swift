@@ -8,6 +8,7 @@
 // -----------------------------------------------------------
 
 import DataStorage
+import Design
 import SwiftData
 import SwiftUI
 import Utilities
@@ -34,9 +35,7 @@ public struct DaysView: View {
 		NavigationStack {
 			VStack(alignment: .leading, spacing: 0) {
 				Text(monthShown + "\(weekPosition ?? 0)")
-					.font(.title2)
-					.fontDesign(.rounded)
-					.bold()
+					.title2()
 					.foregroundStyle(.secondary)
 					.padding(.leading, 24)
 					.task {

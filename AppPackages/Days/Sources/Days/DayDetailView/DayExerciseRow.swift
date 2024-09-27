@@ -37,9 +37,7 @@ struct DayExerciseRow: View {
 			} header: {
 				HStack {
 					Text("Push up")
-						.font(.title2)
-						.fontWeight(.bold)
-						.fontDesign(.rounded)
+						.title2()
 					Spacer()
 				}
 			}
@@ -59,9 +57,7 @@ struct DayExerciseRow: View {
 			} header: {
 				HStack {
 					Text("Bicep Curl")
-						.font(.title2)
-						.fontWeight(.bold)
-						.fontDesign(.rounded)
+						.title2()
 					Spacer()
 				}
 			}

@@ -36,6 +36,7 @@
 		69448C9E2C9133DC00E1E698 /* DataStorage */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DataStorage; path = AppPackages/DataStorage; sourceTree = "<group>"; };
 		698118A52C927BD00058923B /* Exercises */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Exercises; path = AppPackages/Exercises; sourceTree = "<group>"; };
 		6994175D2C95FE760091E6DD /* Utilities */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Utilities; path = AppPackages/Utilities; sourceTree = "<group>"; };
+		69CDC5D72CA740E00085C02B /* Design */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Design; path = AppPackages/Design; sourceTree = "<group>"; };
 		69F0834F2C9DBCEF005CE026 /* Days */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Days; path = AppPackages/Days; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +105,7 @@
 				69F0834F2C9DBCEF005CE026 /* Days */,
 				698118A52C927BD00058923B /* Exercises */,
 				69448C9E2C9133DC00E1E698 /* DataStorage */,
+				69CDC5D72CA740E00085C02B /* Design */,
 				6994175D2C95FE760091E6DD /* Utilities */,
 				69448C6D2C91323D00E1E698 /* PeakFit */,
 				69448C822C91323E00E1E698 /* PeakFitTests */,
