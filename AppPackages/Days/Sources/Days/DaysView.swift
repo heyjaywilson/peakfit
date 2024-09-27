@@ -12,32 +12,13 @@ import SwiftData
 import SwiftUI
 import Utilities
 
-struct Week: Identifiable {
-	var id: Int {
-		Int(startDate.timeIntervalSince1970 + endDate.timeIntervalSince1970)
-	}
-
-	var startDate: Date
-	var endDate: Date
-
-	var days: [CalendarDay]
-}
-
-struct CalendarDay: Identifiable {
-	var id: Double {
-		date.timeIntervalSince1970
-	}
-
-	var date: Date
-	var hasExercises: Bool
-}
-
 public struct DaysView: View {
 	@Environment(\.modelContext) private var modelContext
 
 	@State private var weeks: [Week] = []
 	@State private var selectedDate: Date? = .now
 	@State private var weekPosition: Week.ID?
+	@State private var openCalendar: Bool = false
 
 	var monthShown: String {
 		guard let currentWeek = weeks.first(where: { $0.id == weekPosition }) else {
@@ -50,41 +31,71 @@ public struct DaysView: View {
 	public init() {}
 
 	public var body: some View {
-		VStack(alignment: .leading, spacing: 0) {
-			Text(monthShown + "\(weekPosition ?? 0)")
-				.font(.title2)
-				.fontDesign(.rounded)
-				.bold()
-				.foregroundStyle(.secondary)
-				.padding(.leading, 24)
-				.task {
-					await addWeek(for: .now)
-					weekPosition = weeks.first?.id
-				}
-			ScrollView(.horizontal) {
-				LazyHStack {
-					ForEach(weeks) { week in
-						WeekView(selectedDate: $selectedDate, week: week)
-							.id(week.id)
-							.containerRelativeFrame(
-								.horizontal, count: 1, spacing: 16, alignment: .center
-							)
-							.task {
-								let previousWeekDate = getDateForPreviousWeek(from: week.startDate)
-								Task {
-									await addWeek(for: previousWeekDate)
+		NavigationStack {
+			VStack(alignment: .leading, spacing: 0) {
+				Text(monthShown + "\(weekPosition ?? 0)")
+					.font(.title2)
+					.fontDesign(.rounded)
+					.bold()
+					.foregroundStyle(.secondary)
+					.padding(.leading, 24)
+					.task {
+						await addWeek(for: .now)
+						weekPosition = weeks.first?.id
+					}
+				ScrollView(.horizontal) {
+					LazyHStack {
+						ForEach(weeks) { week in
+							WeekView(selectedDate: $selectedDate, week: week)
+								.id(week.id)
+								.containerRelativeFrame(
+									.horizontal, count: 1, spacing: 16, alignment: .center
+								)
+								.task {
+									let previousWeekDate = getDateForPreviousWeek(
+										from: week.startDate)
+									Task {
+										await addWeek(for: previousWeekDate)
+									}
 								}
-							}
+						}
+					}
+					.scrollTargetLayout()
+				}
+				.scrollTargetBehavior(.viewAligned)
+				.scrollPosition(id: $weekPosition)
+				.scrollIndicators(.hidden)
+				.frame(height: 100)
+			}
+			DayDetailView(day: selectedDate ?? .now)
+				.toolbar {
+					ToolbarItem {
+						Button("Calendar", systemImage: "calendar") {
+							openCalendar.toggle()
+						}
 					}
 				}
-				.scrollTargetLayout()
-			}
-			.scrollTargetBehavior(.viewAligned)
-			.scrollPosition(id: $weekPosition)
-			.scrollIndicators(.hidden)
-			.frame(height: 100)
+				.sheet(isPresented: $openCalendar) {
+					// Open the calendar view to the month that was scrolled
+					CalendarMonthView(
+						selectedDate: $selectedDate,
+						date: weeks.first(where: { $0.id == weekPosition })?.startDate ?? .now
+					)
+					.presentationDetents([.medium])
+					.presentationDragIndicator(.visible)
+				}
 		}
-		DayDetailView(day: selectedDate ?? .now)
+		// Change the scrollview position when the selected date changes
+		.onChange(of: selectedDate ?? .now) { oldValue, newValue in
+			Task {
+				await addWeek(for: newValue)
+				await MainActor.run {
+					weekPosition =
+						weeks.first(where: { $0.startDate == getBeginningOfWeek(for: newValue) })?
+						.id
+				}
+			}
+		}
 	}
 }
 

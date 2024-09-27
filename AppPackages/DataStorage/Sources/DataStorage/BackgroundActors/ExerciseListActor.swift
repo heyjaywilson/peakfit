@@ -26,7 +26,10 @@ extension ExerciseList {
 			}
 		}
 
-		/// Save the modelContext as it is right now
+		/// Save the current modelContext
+		/// - Throws: Any errors that occur during the save operation
+		///
+		/// This needs to be called after any mutations to the modelContext in a background actor so that the changes are persisted.
 		private func save() throws {
 			do {
 				try modelContext.save()

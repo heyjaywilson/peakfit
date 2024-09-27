@@ -13,13 +13,19 @@ extension Exercise {
 	/// This service is responsible for managing exercises in the database. It is used to do any writing to the database.
 	@ModelActor
 	public actor Service {
+		/// Add an Exercise to the database
+		/// - Parameter name: The name of the Exercise
+		/// - Throws: Any errors that occur during the save operation
 		public func addExercise(name: String) throws {
 			let newExercise = Exercise(name: name)
 			modelContext.insert(newExercise)
 			try save()
 		}
 
-		/// Saves to the model context
+		/// Save the current modelContext
+		/// - Throws: Any errors that occur during the save operation
+		///
+		/// This needs to be called after any mutations to the modelContext in a background actor so that the changes are persisted.
 		private func save() throws {
 			do {
 				try modelContext.save()
@@ -29,6 +35,9 @@ extension Exercise {
 			}
 		}
 
+		/// Delete an Exercise from the database
+		/// - Parameter ids: The IDs of the Exercises to delete
+		/// - Throws: Any errors that occur during the save operation
 		public func delete(for ids: [PersistentIdentifier]) throws {
 			for id in ids {
 				guard
@@ -45,7 +54,7 @@ extension Exercise {
 			}
 		}
 
-		/// Returns PersistentIdentifier for each exercise
+		/// Returns the PersistentIdentifier for each exercise the user has added
 		func getAllIDs() throws -> [PersistentIdentifier] {
 			let descriptor = FetchDescriptor<Exercise>()
 			let exercises = try modelContext.fetch(descriptor)
