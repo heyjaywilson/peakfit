@@ -63,12 +63,11 @@ struct CalendarMonthView: View {
 	var body: some View {
 		VStack {
 			Text(DateFormatters.monthString.string(from: date))
-				.font(.headline)
+				.headline()
 			LazyVGrid(columns: columns) {
 				ForEach(daysOfWeeks, id: \.self) { day in
 					Text(day)
 						.bold()
-						.fontDesign(.rounded)
 				}
 				ForEach(0..<daysBeforeStartOfMonth, id: \.self) { _ in
 					Color.clear

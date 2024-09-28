@@ -7,6 +7,7 @@
 // Created on 9/20/24 by @HeyJayWilson
 // -----------------------------------------------------------
 
+import Design
 import SwiftUI
 import Utilities
 
@@ -28,12 +29,10 @@ struct DaySelectorLabel: View {
 	var body: some View {
 		VStack {
 			Text(dayOfWeek)
-				.font(.caption)
+				.caption()
 				.textCase(.uppercase)
-				.fontDesign(.rounded)
 			Text(dayOfMonth.formatted())
-				.fontDesign(.rounded)
-				.fontWeight(.bold)
+				.bold()
 		}
 		.foregroundStyle(
 			isSelected ? .white : .secondary
@@ -41,16 +40,16 @@ struct DaySelectorLabel: View {
 		.frame(maxWidth: .infinity, maxHeight: .infinity)
 		.aspectRatio(0.75, contentMode: .fit)
 		.background {
-			RoundedRectangle(cornerRadius: 10, style: .continuous)
+			RoundedRectangle(cornerRadius: .radiusBase, style: .continuous)
 				.fill(
 					isSelected ? Color.accentColor : Color.clear
 				)
 				.padding(
-					isSelected ? 0 : 4
+					isSelected ? .zero : .paddingSmall
 				)
 		}
 		.overlay {
-			RoundedRectangle(cornerRadius: 10, style: .continuous)
+			RoundedRectangle(cornerRadius: .radiusBase, style: .continuous)
 				.stroke(isSelected ? Color.accentColor : Color.secondary, lineWidth: 2)
 		}
 	}

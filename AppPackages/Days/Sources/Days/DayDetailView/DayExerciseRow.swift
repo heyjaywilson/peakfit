@@ -37,17 +37,15 @@ struct DayExerciseRow: View {
 			} header: {
 				HStack {
 					Text("Push up")
-						.font(.title2)
-						.fontWeight(.bold)
-						.fontDesign(.rounded)
+						.title2()
 					Spacer()
 				}
 			}
 		}
-		.padding(16)
+		.padding(.paddingLarge)
 		.frame(maxWidth: .infinity, alignment: .leading)
 		.background {
-			RoundedRectangle(cornerRadius: 10, style: .continuous)
+			RoundedRectangle(cornerRadius: .radiusBase, style: .continuous)
 				.fill(Material.regular)
 		}
 
@@ -59,17 +57,15 @@ struct DayExerciseRow: View {
 			} header: {
 				HStack {
 					Text("Bicep Curl")
-						.font(.title2)
-						.fontWeight(.bold)
-						.fontDesign(.rounded)
+						.title2()
 					Spacer()
 				}
 			}
 		}
-		.padding(16)
+		.padding(.paddingLarge)
 		.frame(maxWidth: .infinity, alignment: .leading)
 		.background {
-			RoundedRectangle(cornerRadius: 10, style: .continuous)
+			RoundedRectangle(cornerRadius: .radiusBase, style: .continuous)
 				.fill(Material.regular)
 		}
 	}

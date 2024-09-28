@@ -16,7 +16,7 @@ struct WeekView: View {
 	var week: Week
 
 	var body: some View {
-		HStack(spacing: 4) {
+		HStack(spacing: .spacingSmall) {
 			ForEach(week.days) { calendarDay in
 				Button {
 					selectedDate = calendarDay.date

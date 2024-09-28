@@ -21,6 +21,7 @@ public struct ExerciseListView: View {
 	@State private var showNewListView: Bool = false
 
 	public init() {}
+
 	public var body: some View {
 		NavigationStack {
 			List {
