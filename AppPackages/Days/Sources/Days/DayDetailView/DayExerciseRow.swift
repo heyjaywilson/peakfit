@@ -42,10 +42,10 @@ struct DayExerciseRow: View {
 				}
 			}
 		}
-		.padding(16)
+		.padding(.paddingLarge)
 		.frame(maxWidth: .infinity, alignment: .leading)
 		.background {
-			RoundedRectangle(cornerRadius: 10, style: .continuous)
+			RoundedRectangle(cornerRadius: .radiusBase, style: .continuous)
 				.fill(Material.regular)
 		}
 
@@ -62,10 +62,10 @@ struct DayExerciseRow: View {
 				}
 			}
 		}
-		.padding(16)
+		.padding(.paddingLarge)
 		.frame(maxWidth: .infinity, alignment: .leading)
 		.background {
-			RoundedRectangle(cornerRadius: 10, style: .continuous)
+			RoundedRectangle(cornerRadius: .radiusBase, style: .continuous)
 				.fill(Material.regular)
 		}
 	}

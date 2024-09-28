@@ -47,7 +47,7 @@ struct DayDetailView: View {
 				ScrollView {
 					Color.clear
 						.frame(height: daySummaryViewSize.height)
-					LazyVStack(spacing: 16) {
+					LazyVStack(spacing: .spacingLarge) {
 						ForEach(exercises) { exercise in
 							section(for: exercise)
 							// TODO: Figure out how to only animate when the view is exiting at the top
@@ -59,11 +59,11 @@ struct DayDetailView: View {
 					}
 
 				}
-				.contentMargins(16.0, for: .scrollContent)
+				.contentMargins(.contentMarginsBase, for: .scrollContent)
 			}
 			daySummary
 				.padding(.bottom)
-				.padding(.horizontal, 16)
+				.padding(.horizontal, .paddingLarge)
 				.overlay {
 					GeometryReader { proxy in
 						Color.clear
@@ -83,9 +83,9 @@ struct DayDetailView: View {
 
 extension DayDetailView {
 	@ViewBuilder var daySummary: some View {
-		VStack(alignment: .leading, spacing: 16) {
+		VStack(alignment: .leading, spacing: .spacingLarge) {
 			HStack {
-				VStack(alignment: .leading, spacing: 4) {
+				VStack(alignment: .leading, spacing: .spacingSmall) {
 					Text("Sets")
 						.headline()
 					Text(exerciseSets.count.formatted())
@@ -94,7 +94,7 @@ extension DayDetailView {
 						.contentTransition(.numericText())
 				}
 				Spacer()
-				VStack(alignment: .leading, spacing: 4) {
+				VStack(alignment: .leading, spacing: .spacingSmall) {
 					Text("Repetitions")
 						.headline()
 					Text(totalReps.formatted())
@@ -104,7 +104,7 @@ extension DayDetailView {
 				}
 			}
 			HStack {
-				VStack(alignment: .leading, spacing: 4) {
+				VStack(alignment: .leading, spacing: .spacingSmall) {
 					Text("Exercises")
 						.headline()
 					Text(exercises.count.formatted())
@@ -115,11 +115,11 @@ extension DayDetailView {
 			}
 		}
 		.frame(maxWidth: .infinity, alignment: .leading)
-		.padding(16)
+		.padding(.paddingLarge)
 		.background {
-			RoundedRectangle(cornerRadius: 10)
+			RoundedRectangle(cornerRadius: .radiusBase)
 				.fill(Material.ultraThin)
-				.shadow(radius: 8)
+				.shadow(radius: .radiusSmall)
 		}
 	}
 
@@ -142,7 +142,7 @@ extension DayDetailView {
 							.bold()
 							+ Text(" Reps")
 					}
-					.padding(.trailing, 8)
+					.padding(.trailing, .paddingBase)
 					HStack {
 						Text(totalWeight(for: exercise).formatted())
 							.foregroundStyle(.green)
@@ -155,7 +155,7 @@ extension DayDetailView {
 		.padding(16)
 		.frame(maxWidth: .infinity, alignment: .leading)
 		.background {
-			RoundedRectangle(cornerRadius: 10, style: .continuous)
+			RoundedRectangle(cornerRadius: .radiusBase, style: .continuous)
 				.fill(Material.ultraThin)
 		}
 	}
