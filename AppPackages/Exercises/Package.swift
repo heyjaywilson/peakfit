@@ -16,13 +16,18 @@ let package = Package(
 	dependencies: [
 		.package(name: "DataStorage", path: "../DataStorage"),
 		.package(name: "Utilities", path: "../Utilities"),
+		.package(name: "Design", path: "../Design"),
 	],
 	targets: [
 		// Targets are the basic building blocks of a package, defining a module or a test suite.
 		// Targets can depend on other targets in this package and products from dependencies.
 		.target(
 			name: "Exercises",
-			dependencies: [.byName(name: "DataStorage"), .byName(name: "Utilities")]
+			dependencies: [
+				.byName(name: "DataStorage"),
+				.byName(name: "Utilities"),
+				.byName(name: "Design"),
+			]
 		),
 		.testTarget(
 			name: "ExercisesTests",

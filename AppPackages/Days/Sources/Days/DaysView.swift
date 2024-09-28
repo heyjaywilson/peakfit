@@ -8,6 +8,7 @@
 // -----------------------------------------------------------
 
 import DataStorage
+import Design
 import SwiftData
 import SwiftUI
 import Utilities
@@ -32,13 +33,11 @@ public struct DaysView: View {
 
 	public var body: some View {
 		NavigationStack {
-			VStack(alignment: .leading, spacing: 0) {
+			VStack(alignment: .leading, spacing: .zero) {
 				Text(monthShown + "\(weekPosition ?? 0)")
-					.font(.title2)
-					.fontDesign(.rounded)
-					.bold()
+					.title2()
 					.foregroundStyle(.secondary)
-					.padding(.leading, 24)
+					.padding(.leading, .paddingXLarge)
 					.task {
 						await addWeek(for: .now)
 						weekPosition = weeks.first?.id
@@ -49,7 +48,8 @@ public struct DaysView: View {
 							WeekView(selectedDate: $selectedDate, week: week)
 								.id(week.id)
 								.containerRelativeFrame(
-									.horizontal, count: 1, spacing: 16, alignment: .center
+									.horizontal, count: 1, spacing: .spacingLarge,
+									alignment: .center
 								)
 								.task {
 									let previousWeekDate = getDateForPreviousWeek(

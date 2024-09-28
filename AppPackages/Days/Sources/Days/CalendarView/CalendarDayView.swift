@@ -22,14 +22,14 @@ struct CalendarDayView: View {
 
 	var body: some View {
 		ZStack {
-			RoundedRectangle(cornerRadius: 8, style: .circular)
+			RoundedRectangle(cornerRadius: .radiusSmall, style: .circular)
 				.fill(hasExercises ? Color.accentColor : .clear)
 				.overlay {
-					RoundedRectangle(cornerRadius: 8, style: .circular)
+					RoundedRectangle(cornerRadius: .radiusSmall, style: .circular)
 						.fill(Material.ultraThin)
 				}
 			Text(date.dayOfMonth.formatted())
-				.padding(.vertical, 8)
+				.padding(.vertical, .paddingBase)
 				.foregroundStyle(hasExercises ? .white : .primary)
 		}
 		.task {

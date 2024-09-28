@@ -8,6 +8,7 @@
 // -----------------------------------------------------------
 
 import DataStorage
+import Design
 import SwiftUI
 
 struct NewExerciseListModel {

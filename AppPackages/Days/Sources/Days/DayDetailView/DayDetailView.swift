@@ -8,6 +8,7 @@
 // -----------------------------------------------------------
 
 import DataStorage
+import Design
 import SwiftData
 import SwiftUI
 
@@ -46,7 +47,7 @@ struct DayDetailView: View {
 				ScrollView {
 					Color.clear
 						.frame(height: daySummaryViewSize.height)
-					LazyVStack(spacing: 16) {
+					LazyVStack(spacing: .spacingLarge) {
 						ForEach(exercises) { exercise in
 							section(for: exercise)
 							// TODO: Figure out how to only animate when the view is exiting at the top
@@ -58,11 +59,11 @@ struct DayDetailView: View {
 					}
 
 				}
-				.contentMargins(16.0, for: .scrollContent)
+				.contentMargins(.contentMarginsBase, for: .scrollContent)
 			}
 			daySummary
 				.padding(.bottom)
-				.padding(.horizontal, 16)
+				.padding(.horizontal, .paddingLarge)
 				.overlay {
 					GeometryReader { proxy in
 						Color.clear
@@ -82,52 +83,43 @@ struct DayDetailView: View {
 
 extension DayDetailView {
 	@ViewBuilder var daySummary: some View {
-		VStack(alignment: .leading, spacing: 16) {
+		VStack(alignment: .leading, spacing: .spacingLarge) {
 			HStack {
-				VStack(alignment: .leading, spacing: 4) {
+				VStack(alignment: .leading, spacing: .spacingSmall) {
 					Text("Sets")
-						.font(.headline)
-						.fontDesign(.rounded)
+						.headline()
 					Text(exerciseSets.count.formatted())
-						.font(.title)
-						.fontWeight(.bold)
-						.fontDesign(.rounded)
+						.title()
 						.foregroundStyle(exerciseSets.isEmpty ? .secondary : Color.red)
 						.contentTransition(.numericText())
 				}
 				Spacer()
-				VStack(alignment: .leading, spacing: 4) {
+				VStack(alignment: .leading, spacing: .spacingSmall) {
 					Text("Repetitions")
-						.font(.headline)
-						.fontDesign(.rounded)
+						.headline()
 					Text(totalReps.formatted())
-						.font(.title)
-						.fontWeight(.bold)
-						.fontDesign(.rounded)
+						.title()
 						.foregroundStyle(totalReps <= 0 ? .secondary : Color.blue)
 						.contentTransition(.numericText())
 				}
 			}
 			HStack {
-				VStack(alignment: .leading, spacing: 4) {
+				VStack(alignment: .leading, spacing: .spacingSmall) {
 					Text("Exercises")
-						.font(.headline)
-						.fontDesign(.rounded)
+						.headline()
 					Text(exercises.count.formatted())
-						.font(.title)
-						.fontWeight(.bold)
-						.fontDesign(.rounded)
+						.title()
 						.foregroundStyle(exercises.isEmpty ? .secondary : Color.orange)
 						.contentTransition(.numericText())
 				}
 			}
 		}
 		.frame(maxWidth: .infinity, alignment: .leading)
-		.padding(16)
+		.padding(.paddingLarge)
 		.background {
-			RoundedRectangle(cornerRadius: 10)
+			RoundedRectangle(cornerRadius: .radiusBase)
 				.fill(Material.ultraThin)
-				.shadow(radius: 8)
+				.shadow(radius: .radiusSmall)
 		}
 	}
 
@@ -142,9 +134,7 @@ extension DayDetailView {
 			} header: {
 				HStack {
 					Text(exercise.name)
-						.font(.title2)
-						.fontWeight(.bold)
-						.fontDesign(.rounded)
+						.title2()
 					Spacer()
 					HStack {
 						Text(totalReps(for: exercise).formatted())
@@ -152,7 +142,7 @@ extension DayDetailView {
 							.bold()
 							+ Text(" Reps")
 					}
-					.padding(.trailing, 8)
+					.padding(.trailing, .paddingBase)
 					HStack {
 						Text(totalWeight(for: exercise).formatted())
 							.foregroundStyle(.green)
@@ -165,7 +155,7 @@ extension DayDetailView {
 		.padding(16)
 		.frame(maxWidth: .infinity, alignment: .leading)
 		.background {
-			RoundedRectangle(cornerRadius: 10, style: .continuous)
+			RoundedRectangle(cornerRadius: .radiusBase, style: .continuous)
 				.fill(Material.ultraThin)
 		}
 	}
