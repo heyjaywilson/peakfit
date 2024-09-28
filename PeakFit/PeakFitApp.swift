@@ -45,6 +45,7 @@ struct PeakFitApp: App {
 	var body: some Scene {
 		WindowGroup {
 			AppEntry()
+				.fontDesign(.rounded)
 		}
 		.modelContainer(DataStorage.productionModelContainer)
 	}

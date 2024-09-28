@@ -67,7 +67,7 @@ struct CalendarMonthView: View {
 			LazyVGrid(columns: columns) {
 				ForEach(daysOfWeeks, id: \.self) { day in
 					Text(day)
-						.boldRounded()
+						.bold()
 				}
 				ForEach(0..<daysBeforeStartOfMonth, id: \.self) { _ in
 					Color.clear

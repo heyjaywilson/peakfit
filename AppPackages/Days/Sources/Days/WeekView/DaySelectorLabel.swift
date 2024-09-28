@@ -31,7 +31,7 @@ struct DaySelectorLabel: View {
 				.caption()
 				.textCase(.uppercase)
 			Text(dayOfMonth.formatted())
-				.boldRounded()
+				.bold()
 		}
 		.foregroundStyle(
 			isSelected ? .white : .secondary
