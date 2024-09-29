@@ -25,7 +25,7 @@ Here's an over view of the process:
 
 To make sure issues aren't being worked on by multiple people, issues will be assigned to whoever wants to work on them on a first ask basis.
 
-All tasks can be found in Issues. If you're looking for one to work on, then check out this [view](https://github.com/heyjaywilson/peakfit/issues?q=is:open+label:%22ready+for+work%22+no:assignee). As long as no one is assigned and the issue is marked as "ready for work", then you can ask to be assigned to that issue..
+All tasks can be found in Issues. If you're looking for one to work on, then check out this [view](https://github.com/heyjaywilson/peakfit/issues?q=is:open+label:%22ready+for+work%22+no:assignee). As long as no one is assigned and the issue is marked as "ready for work", then you can ask to be assigned to that issue. You will not be assigned a new issue until your currently assigned issue is complete and the PR is accepted.
 
 ## Step 2: Fork the repo
 
