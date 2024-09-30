@@ -70,13 +70,23 @@ struct NewExerciseList: View {
 
 	// Create a new exercise list and then close the sheet or whatever view is open
 	func save() {
-		let newList = ExerciseList(
-			name: newExerciseList.name,
-			summary: newExerciseList.description,
-			icon: newExerciseList.icon
-		)
-		modelContext.insert(newList)
-		dismiss()
+		let container = modelContext.container
+		// Make into a constant to cross threads
+		let newExerciseList = newExerciseList
+
+		Task.detached(priority: .userInitiated) {
+			let service = ExerciseList.Service(modelContainer: container)
+			do {
+				try await service.saveList(
+					name: newExerciseList.name, summary: newExerciseList.description,
+					icon: newExerciseList.icon)
+				await MainActor.run {
+					self.dismiss()
+				}
+			} catch {
+				print("🚨 \(#file) \(#function) Error saving exercise list: \(error)")
+			}
+		}
 	}
 
 	func cancel() {

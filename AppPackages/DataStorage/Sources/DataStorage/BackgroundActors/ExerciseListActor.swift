@@ -14,6 +14,12 @@ extension ExerciseList {
 	/// This service is responsible for managing ExerciseLists in the database. It is used to do any writing to the database.
 	@ModelActor
 	public actor Service {
+		/// Add a list with the given name, description, and icon
+		public func saveList(name: String, summary: String, icon: String) throws {
+			let list = ExerciseList(name: name, summary: summary, icon: icon)
+			modelContext.insert(list)
+			try save()
+		}
 		/// Delete lists for given persistent identifiers
 		public func deleteList(for ids: [PersistentIdentifier]) throws {
 			for id in ids {
