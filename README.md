@@ -5,7 +5,6 @@ An app to track your strength training workouts.
 ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/heyjaywilson/peakfit) ![GitHub contributors](https://img.shields.io/github/contributors/heyjaywilson/peakfit) ![GitHub Repo stars](https://img.shields.io/github/stars/heyjaywilson/peakfit)
 
 
-
 ## :hammer: Project Setup
 
 ### Prerequisites
@@ -21,8 +20,9 @@ An app to track your strength training workouts.
 
 1. Clone the repo
 2. Navigate into the repo via the command line
-3. Run `npm prepare` to install git hooks
-4. Open the Xcode project
+3. Run `npm install` to install the node modules
+4. Run `npx husky` to install the git hooks
+5. Open the Xcode project 
 5. Remove the template suffix from `PeakFit/Resources/Project.xcconfig.template` so that it is just `PeakFit/Resources/Project.xcconfig`
 6. Set your development team in the `PeakFit/Resources/Project.xcconfig` file
 7. Set the PRODUCT_BUNDLE_IDENTIFIER to one that is unique to your development team

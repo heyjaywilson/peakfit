@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "SwiftUI app to track your exercise",
   "scripts": {
-    "prepare": "husky",
+    "prepare": "husky .",
     "emojify": "npx --no-install devmoji -e --format shortcode",
     "format": "find . -name \"*.swift\" -print0 | xargs -0 swift-format --in-place --configuration .swift-format.json",
     "format-changes": ". ./scripts/format-changes.sh"
