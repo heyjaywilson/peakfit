@@ -35,14 +35,14 @@ An app to track your strength training workouts.
 
 ### Commands
 
-These commands are available once you have installed the prerequisites and have run `npm prepare`.
+These commands are available once you have installed the prerequisites and have run `npm run prepare`.
 
 | Command | Purpose |
 | --- | --- |
-| `npm prepare` | installs git hooks |
+| `npm run prepare` | installs git hooks |
 | `npm run emojify` | adds emoji to the last commit |
-| `npm format` | runs swift format across all swift files |
-| `npm format-changes` | runs a script to only format swift files that have been touched |
+| `npm run format` | runs swift format across all swift files |
+| `npm run format-changes` | runs a script to only format swift files that have been touched |
 
 ## Contributing TLDR
 
