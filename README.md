@@ -21,8 +21,7 @@ An app to track your strength training workouts.
 
 1. Clone the repo
 2. Navigate into the repo via the command line
-3. Run `npm install` to install the node modules
-4. Run `npm prepare` to install git hooks
+3. Run `npm install` to install the node modules and git hooks
 5. Open the Xcode project
 5. Remove the template suffix from `PeakFit/Resources/Project.xcconfig.template` so that it is just `PeakFit/Resources/Project.xcconfig`
 6. Set your development team in the `PeakFit/Resources/Project.xcconfig` file
