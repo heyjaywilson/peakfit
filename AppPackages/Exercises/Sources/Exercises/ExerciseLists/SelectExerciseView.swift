@@ -67,13 +67,23 @@ struct SelectExerciseView: View {
 	}
 
 	func select(exercise: Exercise) {
+		let container = modelContext.container
+		let exerciseListID = exerciseLists.first!.id
+		let exerciseID = exercise.id
+
+		Task.detached(priority: .userInitiated) {
+			let service = ExerciseList.Service(modelContainer: container)
+			do {
+				try await service.addOrRemoveExercise(exerciseID: exerciseID, from: exerciseListID)
+			} catch {
+				print("🚨 \(#function) \(#file) Error adding exercise to list: \(error)")
+			}
+		}
 		if selectedExercises.contains(where: { $0 == exercise }) {
 			selectedExercises.removeAll(where: { $0 == exercise })
 		} else {
 			selectedExercises.append(exercise)
 		}
-		// Auto update exerciseList
-		exerciseLists.first?.exercises = selectedExercises
 	}
 }
 

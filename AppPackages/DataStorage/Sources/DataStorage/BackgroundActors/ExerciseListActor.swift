@@ -32,6 +32,27 @@ extension ExerciseList {
 			}
 		}
 
+		public func addOrRemoveExercise(
+			exerciseID: PersistentIdentifier, from listID: PersistentIdentifier
+		) throws {
+			// Get the exercise from the exerciseID
+			guard let exercise = self[exerciseID, as: Exercise.self] else {
+				print("\(#file) \(#function) \(exerciseID) not found")
+				return
+			}
+			// Get the list and make sure it exists
+			guard let list = self[listID, as: ExerciseList.self] else {
+				print("\(#file) \(#function) \(listID) not found")
+				return
+			}
+			if list.exercises.contains(exercise) {
+				list.exercises.remove(at: list.exercises.firstIndex(of: exercise)!)
+			} else {
+				list.exercises.append(exercise)
+			}
+			try save()
+		}
+
 		/// Save the current modelContext
 		/// - Throws: Any errors that occur during the save operation
 		///
