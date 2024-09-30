@@ -20,13 +20,6 @@ struct ExerciseListDetailView: View {
 			if exerciseList.exercises.isEmpty {
 				NavigationLink("No exercises yet! Add one!") {
 					SelectExerciseView(nameOfList: exerciseList.name)
-						.onDisappear {
-							do {
-								try modelContext.save()
-							} catch {
-								print(#file, #function, "Error saving model: \(error)")
-							}
-						}
 				}
 			}
 			ForEach(exerciseList.exercises) { exercise in

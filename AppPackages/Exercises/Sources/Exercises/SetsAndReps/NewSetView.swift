@@ -141,27 +141,17 @@ extension NewSetView {
 // Functions
 extension NewSetView {
 	func save() {
-		let completedDate: Date = .now
-		let newSet = ExerciseSet(
-			reps: reps,
-			weight: weight,
-			dateCompleted: completedDate
-		)
-
-		// Add the set to the context
-		modelContext.insert(newSet)
-		// Add it to the exercises
-		exercise.sets.append(newSet)
-
-		for exerciseList in exercise.lists {
-			exerciseList.lastCompletedDate = completedDate
-		}
-
-		do {
-			try modelContext.save()
-			dismiss()
-		} catch {
-			print("Error saving new set: \(error.localizedDescription)")
+		let container = modelContext.container
+		let exerciseID = exercise.id
+		let reps = reps
+		let weight = weight
+		Task.detached(priority: .userInitiated) {
+			let service = ExerciseSet.Service(modelContainer: container)
+			do {
+				try await service.addSet(for: exerciseID, weight: weight, reps: reps)
+			} catch {
+				print("Error saving set: \(error)")
+			}
 		}
 	}
 }

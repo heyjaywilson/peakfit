@@ -39,13 +39,20 @@ extension ExerciseSet {
 				print("\(#file) \(#function) \(exerciseID) not found")
 				return
 			}
+			let dateCompleted = Date.now
 			let newSet = ExerciseSet(
 				reps: reps,
 				weight: weight,
-				dateCompleted: .now
+				dateCompleted: dateCompleted
 			)
 			modelContext.insert(newSet)
 			exercise.sets.append(newSet)
+
+			// update exercise list ids
+			for exerciseList in exercise.lists {
+				exerciseList.lastCompletedDate = dateCompleted
+			}
+
 			try save()
 		}
 
