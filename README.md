@@ -5,7 +5,6 @@ An app to track your strength training workouts.
 ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/heyjaywilson/peakfit) ![GitHub contributors](https://img.shields.io/github/contributors/heyjaywilson/peakfit) ![GitHub Repo stars](https://img.shields.io/github/stars/heyjaywilson/peakfit)
 
 
-
 ## :hammer: Project Setup
 
 ### Prerequisites
