@@ -29,7 +29,7 @@ An app to track your strength training workouts.
 8. Build the project
 
 ### Resources for coding conventions
-
+ 
 - [Swift API Design Guidelines](https://swift.org/documentation/api-design-guidelines/)
 - [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
