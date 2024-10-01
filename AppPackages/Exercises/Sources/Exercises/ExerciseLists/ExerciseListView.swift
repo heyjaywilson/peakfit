@@ -46,6 +46,14 @@ public struct ExerciseListView: View {
 						showNewListView = true
 					}
 				}
+
+				ToolbarItem {
+					Menu("Menu", systemImage: "note.text") {
+						Button {} label: {
+							Text("Sort")
+						}
+					}
+				}
 			}
 			.sheet(isPresented: $showNewListView) {
 				NewExerciseList()
