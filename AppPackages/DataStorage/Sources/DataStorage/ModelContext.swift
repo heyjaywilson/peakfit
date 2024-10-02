@@ -11,6 +11,7 @@ import Foundation
 import SwiftData
 
 extension ModelContext {
+	/// Returns a specific model for an ID
 	public func getModel<T>(for id: PersistentIdentifier) throws -> T? where T: PersistentModel {
 		// If the model is already in the context, let's grab it
 		if let model: T = registeredModel(for: id) {

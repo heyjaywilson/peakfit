@@ -30,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		6912DBFC2C9C62810021ACB2 /* AppEntry */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AppEntry; path = AppPackages/AppEntry; sourceTree = "<group>"; };
+		691EDF652CAD86B90011C69B /* PeakFit.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = PeakFit.xctestplan; path = TestPlan/PeakFit.xctestplan; sourceTree = "<group>"; };
 		69448C6B2C91323D00E1E698 /* PeakFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeakFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69448C7F2C91323E00E1E698 /* PeakFitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeakFitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		69448C892C91323E00E1E698 /* PeakFitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeakFitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +102,7 @@
 		69448C622C91323D00E1E698 = {
 			isa = PBXGroup;
 			children = (
+				691EDF652CAD86B90011C69B /* PeakFit.xctestplan */,
 				6912DBFC2C9C62810021ACB2 /* AppEntry */,
 				69F0834F2C9DBCEF005CE026 /* Days */,
 				698118A52C927BD00058923B /* Exercises */,

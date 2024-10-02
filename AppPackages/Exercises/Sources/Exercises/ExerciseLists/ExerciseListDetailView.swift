@@ -17,12 +17,12 @@ struct ExerciseListDetailView: View {
 
 	var body: some View {
 		List {
-			if exerciseList.exercises.isEmpty {
+			if exerciseList.exercises?.isEmpty ?? false {
 				NavigationLink("No exercises yet! Add one!") {
 					SelectExerciseView(nameOfList: exerciseList.name)
 				}
 			}
-			ForEach(exerciseList.exercises) { exercise in
+			ForEach(exerciseList.exercises ?? []) { exercise in
 				NavigationLink {
 					// Allow the view to fetch it's own exercise instead of being dependent on it being passed in
 					ExerciseDetailView(for: exercise.name)

@@ -45,10 +45,14 @@ extension ExerciseList {
 				print("\(#file) \(#function) \(listID) not found")
 				return
 			}
-			if list.exercises.contains(exercise) {
-				list.exercises.remove(at: list.exercises.firstIndex(of: exercise)!)
+			guard list.exercises != nil else {
+				print("🚨 \(#file) \(#function) \(listID) has no exercises. This is bad data.")
+				return
+			}
+			if list.exercises!.contains(exercise) {
+				list.exercises!.remove(at: list.exercises!.firstIndex(of: exercise)!)
 			} else {
-				list.exercises.append(exercise)
+				list.exercises!.append(exercise)
 			}
 			try save()
 		}

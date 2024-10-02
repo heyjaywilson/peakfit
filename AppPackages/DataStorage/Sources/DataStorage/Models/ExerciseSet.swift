@@ -12,9 +12,9 @@ import SwiftData
 
 @Model
 final public class ExerciseSet {
-	public var reps: Int
-	public var weight: Double
-	public var completedDate: Date
+	public var reps: Int = 0
+	public var weight: Double = 0.0
+	public var completedDate: Date = Date.now
 
 	public var exercise: Exercise?
 

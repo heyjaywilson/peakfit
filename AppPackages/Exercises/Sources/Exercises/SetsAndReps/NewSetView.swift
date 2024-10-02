@@ -66,7 +66,7 @@ struct NewSetView: View {
 	@Previewable @Query var exerciseLists: [ExerciseList]
 
 	NavigationStack {
-		NewSetView(exerciseName: exerciseLists.first?.exercises.first?.name ?? "")
+		NewSetView(exerciseName: exerciseLists.first?.exercises?.first?.name ?? "")
 	}
 	.modelContainer(ExerciseList.previewModel)
 }

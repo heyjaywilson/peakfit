@@ -15,14 +15,14 @@ import SwiftData
 ///Is a SwiftData model
 @Model
 final public class ExerciseList {
-	public var name: String
-	public var summary: String
-	public var icon: String
+	public var name: String = ""
+	public var summary: String = ""
+	public var icon: String = ""
 	/// Last date a set was completed
-	public var lastCompletedDate: Date?
+	public var lastCompletedDate: Date? = nil
 
 	@Relationship(inverse: \Exercise.lists)
-	public var exercises: [Exercise] = []
+	public var exercises: [Exercise]? = []
 
 	public init(
 		name: String,
@@ -40,8 +40,14 @@ final public class ExerciseList {
 
 	public func addExercise(_ exercise: Exercise) {
 		// only add an exercise if it does not exist in the exercises for this list
-		if !exercises.contains(where: { $0.name == exercise.name }) {
-			exercises.append(exercise)
+		guard exercises != nil else {
+			print(
+				"⚠️ This list does not have an exercises array. This is bad. Something is wrong with the data."
+			)
+			return
+		}
+		if exercises!.contains(where: { $0.name == exercise.name }) == false {
+			exercises!.append(exercise)
 		}
 	}
 }

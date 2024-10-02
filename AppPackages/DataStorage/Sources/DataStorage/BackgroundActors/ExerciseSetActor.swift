@@ -39,6 +39,14 @@ extension ExerciseSet {
 				print("\(#file) \(#function) \(exerciseID) not found")
 				return
 			}
+			guard exercise.sets != nil,
+				exercise.lists != nil
+			else {
+				print(
+					"🚨 \(#file) \(#function) \(exerciseID) has no sets or maybe no lists. Bad data here"
+				)
+				return
+			}
 			let dateCompleted = Date.now
 			let newSet = ExerciseSet(
 				reps: reps,
@@ -46,10 +54,10 @@ extension ExerciseSet {
 				dateCompleted: dateCompleted
 			)
 			modelContext.insert(newSet)
-			exercise.sets.append(newSet)
+			exercise.sets!.append(newSet)
 
 			// update exercise list ids
-			for exerciseList in exercise.lists {
+			for exerciseList in exercise.lists! {
 				exerciseList.lastCompletedDate = dateCompleted
 			}
 

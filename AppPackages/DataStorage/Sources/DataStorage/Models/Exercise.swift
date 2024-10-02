@@ -12,12 +12,12 @@ import SwiftData
 
 @Model
 final public class Exercise {
-	public var name: String
+	public var name: String = ""
 
 	@Relationship(inverse: \ExerciseSet.exercise)
-	public var sets: [ExerciseSet] = []
+	public var sets: [ExerciseSet]? = []
 
-	public var lists: [ExerciseList] = []
+	public var lists: [ExerciseList]? = []
 
 	public init(name: String, sets: [ExerciseSet] = [], lists: [ExerciseList] = []) {
 		self.name = name
@@ -28,13 +28,21 @@ final public class Exercise {
 extension Exercise {
 	/// Get the last completed date of the exercise
 	public var lastCompletedDate: Date? {
-		sets.sorted(by: { $0.completedDate < $1.completedDate }).first?.completedDate
+		if let sets {
+			sets.sorted(by: { $0.completedDate < $1.completedDate }).first?.completedDate
+		} else {
+			nil
+		}
 	}
 
 	/// Groups sets by the day completed
 	///
 	/// The time is ignored since we are doing start of day
 	public var setsByDate: [SetsByDate] {
+		guard let sets else {
+			// There are no sets so need to return an empty array
+			return []
+		}
 		var returnValue: [SetsByDate] = []
 
 		let groupedData = Dictionary(grouping: sets) { set in

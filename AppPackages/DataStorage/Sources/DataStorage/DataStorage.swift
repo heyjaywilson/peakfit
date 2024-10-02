@@ -10,6 +10,7 @@
 import SwiftData
 
 public struct DataStorage {
+	/// Model container to use when in production
 	public static let productionModelContainer = {
 		let schema = Schema(
 			[

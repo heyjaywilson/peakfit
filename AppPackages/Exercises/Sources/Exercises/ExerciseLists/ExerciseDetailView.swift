@@ -32,7 +32,7 @@ struct ExerciseDetailView: View {
 
 	var body: some View {
 		Group {
-			if exercise.sets.isEmpty {
+			if exercise.sets?.isEmpty ?? false {
 				noSetsView
 			} else {
 				setListView

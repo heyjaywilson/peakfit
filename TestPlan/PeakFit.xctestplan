@@ -1,0 +1,71 @@
+{
+  "configurations" : [
+    {
+      "id" : "9322222C-C8DE-49DC-B3BD-4F509964BAA1",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:PeakFit.xcodeproj",
+      "identifier" : "69448C6A2C91323D00E1E698",
+      "name" : "PeakFit"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:AppPackages\/AppEntry",
+        "identifier" : "AppEntryTests",
+        "name" : "AppEntryTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:PeakFit.xcodeproj",
+        "identifier" : "69448C7E2C91323E00E1E698",
+        "name" : "PeakFitTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:AppPackages\/Exercises",
+        "identifier" : "ExercisesTests",
+        "name" : "ExercisesTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:AppPackages\/Design",
+        "identifier" : "DesignTests",
+        "name" : "DesignTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:AppPackages\/Utilities",
+        "identifier" : "UtilitiesTests",
+        "name" : "UtilitiesTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:AppPackages\/Days",
+        "identifier" : "DaysTests",
+        "name" : "DaysTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:AppPackages\/DataStorage",
+        "identifier" : "DataStorageTests",
+        "name" : "DataStorageTests"
+      }
+    }
+  ],
+  "version" : 1
+}
