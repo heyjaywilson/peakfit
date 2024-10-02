@@ -12,14 +12,12 @@ categories:
   - title: '🧰 Maintenance'
     labels: 
       - 'chore'
-      - 'refactor'
       - 'style'
-  - title: '💻 Code related'
-    labels:
       - 'build'
       - 'ci'
       - 'docs'
       - 'test'
+      - 'refactor'
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 version-resolver:
   major:
