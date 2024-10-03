@@ -29,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		44E957482CACFA8000A81CA5 /* Settings */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Settings; path = AppPackages/Settings; sourceTree = "<group>"; };
 		6912DBFC2C9C62810021ACB2 /* AppEntry */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AppEntry; path = AppPackages/AppEntry; sourceTree = "<group>"; };
 		69448C6B2C91323D00E1E698 /* PeakFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeakFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69448C7F2C91323E00E1E698 /* PeakFitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeakFitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +108,7 @@
 				69448C9E2C9133DC00E1E698 /* DataStorage */,
 				69CDC5D72CA740E00085C02B /* Design */,
 				6994175D2C95FE760091E6DD /* Utilities */,
+				44E957482CACFA8000A81CA5 /* Settings */,
 				69448C6D2C91323D00E1E698 /* PeakFit */,
 				69448C822C91323E00E1E698 /* PeakFitTests */,
 				69448C8C2C91323E00E1E698 /* PeakFitUITests */,
