@@ -17,7 +17,7 @@ content="// -----------------------------------------------------------
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-DEVELOPMENT_TEAM = ${CI_TEAM_ID}
+DEVELOPMENT_TEAM = ${$DEVELOPMENT_TEAM}
 PRODUCT_BUNDLE_IDENTIFIER = dev.cctplus.PeakFit
 "
 
