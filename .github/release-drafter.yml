@@ -40,5 +40,19 @@ template: |
   $CHANGES
 
 replacers:
-  - search: '/^(feat|fix|chore|ci|test|refactor|style|build)(\(.*?\))?:\s*:([^:]+):/m'
-    replace: ':$3:${{ if $2 }} $2${{ end }}'
+  - search: '/^feat(\(.*?\))?:\s*:([^:]+):/m'
+    replace: ':$2:${{ if $1 }} $1${{ end }}'
+  - search: '/^fix(\(.*?\))?:\s*:([^:]+):/m'
+    replace: ':$2:${{ if $1 }} $1${{ end }}'
+  - search: '/^chore(\(.*?\))?:\s*:([^:]+):/m'
+    replace: ':$2:${{ if $1 }} $1${{ end }}'
+  - search: '/^ci(\(.*?\))?:\s*:([^:]+):/m'
+    replace: ':$2:${{ if $1 }} $1${{ end }}'
+  - search: '/^test(\(.*?\))?:\s*:([^:]+):/m'
+    replace: ':$2:${{ if $1 }} $1${{ end }}'
+  - search: '/^refactor(\(.*?\))?:\s*:([^:]+):/m'
+    replace: ':$2:${{ if $1 }} $1${{ end }}'
+  - search: '/^style(\(.*?\))?:\s*:([^:]+):/m'
+    replace: ':$2:${{ if $1 }} $1${{ end }}'
+  - search: '/^build(\(.*?\))?:\s*:([^:]+):/m'
+    replace: ':$2:${{ if $1 }} $1${{ end }}'
