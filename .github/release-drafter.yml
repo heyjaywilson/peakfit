@@ -40,5 +40,5 @@ template: |
   $CHANGES
 
 replacers:
-  - search: '(feat|fix|chore|ci|test|refactor|style|build)(\(.*?\))?:\s*:([^:]+):'
+  - search: '/^(feat|fix|chore|ci|test|refactor|style|build)(\(.*?\))?:\s*:([^:]+):/m'
     replace: ':$3:${{ if $2 }} $2${{ end }}'
