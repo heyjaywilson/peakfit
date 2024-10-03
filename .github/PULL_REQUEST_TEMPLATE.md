@@ -4,13 +4,12 @@
 ## Description
 <!--- Describe your changes in detail -->
 
-## Motivation and Context
-<!--- Why is this change required? What problem does it solve? -->
 ### Related Issue
 <!--- This project only accepts pull requests related to open issues -->
 <!--- If suggesting a new feature or change, please discuss it in a discussion first -->
 <!--- If fixing a bug, there should be an issue describing it with steps to reproduce -->
 <!--- Please link to the issue here: -->
+<!--- If this Pull Request closes an issue, please add `Closes #XXXX` -->
 
 ## How Has This Been Tested?
 <!--- Please describe in detail how you tested your changes. -->
