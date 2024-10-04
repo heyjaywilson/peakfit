@@ -49,7 +49,8 @@ public struct ExerciseListView: View {
 
 				ToolbarItem {
 					Menu("Menu", systemImage: "note.text") {
-						Button {} label: {
+						Button {
+						} label: {
 							Text("Sort")
 						}
 					}
