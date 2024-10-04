@@ -5,8 +5,8 @@
   "scripts": {
     "prepare": "husky .",
     "emojify": "npx --no-install devmoji -e --format shortcode",
-    "format": "find . -name \"*.swift\" -print0 | xargs -0 swift-format --in-place --configuration .swift-format.json",
-    "format-changes": ". ./scripts/format-changes.sh"
+    "format": ". ./scripts/format.sh",
+    "format-changes": ". ./scripts/format.sh --changes"
   },
   "author": "heyjaywilson",
   "license": "Apache-2.0",
