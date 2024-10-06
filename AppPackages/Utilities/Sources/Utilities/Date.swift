@@ -64,6 +64,56 @@ extension Date {
 }
 
 extension Date {
+	
+	/// Returns a localized string representing the date relative to a reference date.
+	/// Different formatters are used depending on the actual difference.
+	/// - Parameters:
+	/// 	- todayString: The string to return if the reference is the same as the date.
+	///   - reference: The reference date to compare against. Defaults to `.now`
+	///   - calendar: The calendar to use for relative calculations. Defaults to `.current`
+	/// - Returns: A localized string representing the date
+	public func relativeString(todayString: LocalizedStringResource, from ref: Date = .now, calendar: Calendar = .current) -> String {
+		// We only care about comparisons for the date
+		let current = calendar.startOfDay(for: self)
+		let reference = calendar.startOfDay(for: ref)
+		
+		let standardFormat = current.formatted(date: .long, time: .omitted)
+		let referenceYear = Calendar.current.dateComponents([.year], from: reference)
+		let currentYear = Calendar.current.dateComponents([.year], from: current)
+		
+		guard let daysDifference = Calendar.current.dateComponents([.day], from: current, to: reference).day else {
+			return standardFormat
+		}
+		
+		if daysDifference == 0 {
+			// If the date is the same as the reference, we return the today string.
+			return String(localized: todayString)
+			
+		} else if abs(daysDifference) <= 3 {
+			// After an arbitrary three days difference, we choose not to trust the relative formatter anymore.
+			return formatted(.relative(presentation: .named))
+			
+		} else if referenceYear == currentYear {
+			// If we're still in the same year, showing the year label isn't as helpful.
+			let noYearFormat = Date.FormatStyle()
+				.day(.twoDigits)
+				.month(.wide)
+				.year(.omitted)
+				.hour(.omitted)
+				.minute(.omitted)
+				.second(.omitted)
+			
+			return formatted(noYearFormat)
+
+		} else {
+			// We use the standard representation when we're in a different calendar year.
+			return standardFormat
+			
+		}
+	}
+}
+
+extension Date {
 	/// Use these as dates in SwiftUI previews
 	public struct Constants {
 		/// April 21 2024
