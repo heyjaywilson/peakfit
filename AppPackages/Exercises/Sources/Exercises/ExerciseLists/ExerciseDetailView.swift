@@ -11,6 +11,7 @@ import DataStorage
 import Design
 import SwiftData
 import SwiftUI
+import Utilities
 
 struct ExerciseDetailView: View {
 	@Environment(\.modelContext) private var modelContext
@@ -55,15 +56,20 @@ struct ExerciseDetailView: View {
 	}
 }
 
-#Preview(traits: .modifier(ExerciseModelPreviewModifier())) {
+#Preview("Exercise with entries", traits: .modifier(ExerciseModelPreviewModifier())) {
 	@Previewable @Query var exercises: [Exercise]
 
 	NavigationStack {
-		if let exercise = exercises.first {
-			ExerciseDetailView(for: exercise.name)
-		} else {
-			Text("No exercise found")
-		}
+		ExerciseDetailView(for: exercises.first(where: { !$0.sets.isEmpty })!.name)
+	}
+	.modelContainer(Exercise.previewModel)
+}
+
+#Preview("Exercise without entries", traits: .modifier(ExerciseModelPreviewModifier())) {
+	@Previewable @Query var exercises: [Exercise]
+
+	NavigationStack {
+		ExerciseDetailView(for: exercises.first(where: { $0.sets.isEmpty })!.name)
 	}
 	.modelContainer(Exercise.previewModel)
 }
@@ -106,9 +112,7 @@ extension ExerciseDetailView {
 				}
 			} header: {
 				Text(
-					setsByDate.date.formatted(
-						.reference(to: .now, allowedFields: [.year, .month, .day])
-					)
+					setsByDate.date.relativeString(todayString: "Today")
 				)
 				.caption()
 				.bold()

@@ -59,19 +59,38 @@ extension Exercise {
 			for: Exercise.self,
 			configurations: ModelConfiguration(isStoredInMemoryOnly: true)
 		)
-
-		let exercise = Exercise(
+		
+		let exercise = Exercise( // Should contain sets in the future and past
 			name: "Chest Press",
 			sets: [
-				.init(reps: 8, weight: 10, dateCompleted: .now),
-				.init(reps: 8, weight: 5, dateCompleted: .distantPast),
+				// Future
+				.init(reps: 20, weight: 20, dateCompleted: inDays(2)),
+				.init(reps: 20, weight: 20, dateCompleted: inDays(2)),
+				.init(reps: 20, weight: 20, dateCompleted: inDays(2)),
+				// Today
+				.init(reps: 0, weight: 0, dateCompleted: .now),
+				// Past
+				.init(reps: 1, weight: 1, dateCompleted: inDays(-1)),
+				.init(reps: 1, weight: 1, dateCompleted: inDays(-1)),
+				.init(reps: 12, weight: 12, dateCompleted: inDays(-12)),
+				.init(reps: 12, weight: 12, dateCompleted: inDays(-12)),
+				.init(reps: 60, weight: 60, dateCompleted: inDays(-60)),
+				.init(reps: 60, weight: 60, dateCompleted: inDays(-60)),
+				.init(reps: 61, weight: 60, dateCompleted: inDays(-61)),
+				.init(reps: 61, weight: 60, dateCompleted: inDays(-360)),
+				.init(reps: 1000, weight: 1000, dateCompleted: .distantPast),
 			]
 		)
-		let exercise1 = Exercise(name: "Bicep Curl")
-
+		let exercise1 = Exercise(name: "Bicep Curl") // Leave empty
+		
 		container.mainContext.insert(exercise)
 		container.mainContext.insert(exercise1)
-
+		
 		return container
+	}
+	
+	/// Very rough and inaccurate way of getting easy access to days relative to today
+	private static func inDays(_ days: Int) -> Date {
+		Calendar.current.date(byAdding: .day, value: days, to: .now) ?? .now
 	}
 }
