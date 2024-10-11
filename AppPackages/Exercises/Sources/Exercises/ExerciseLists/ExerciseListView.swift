@@ -4,68 +4,38 @@
 //     http://www.apache.org/licenses/LICENSE-2.0
 // -----------------------------------------------------------
 // Project: Exercises
-// Created on 9/11/24 by @HeyJayWilson
+// Created on 2024-10-10 by @HeyJayWilson
 // -----------------------------------------------------------
 
 import DataStorage
 import SwiftData
 import SwiftUI
 
-public struct ExerciseListView: View {
-	@Environment(\.modelContext) private var modelContext
+struct ExerciseListView: View {
+    @Environment(\.modelContext) private var modelContext
+    @Query private var lists: [ExerciseList]
 
-	// Sorting by name here because I don't have an order field
-	@Query(sort: \ExerciseList.name, order: .forward, animation: .default) private var lists:
-		[ExerciseList]
+    init(sortOrder: SortDescriptor<ExerciseList>) {
+        _lists = Query(sort: [sortOrder])
+    }
 
-	@State private var showNewListView: Bool = false
+    var body: some View {
+        List {
+            ForEach(lists) { exerciseList in
+                NavigationLink(destination: ExerciseListDetailView(exerciseList: exerciseList))
+                {
+                    listRow(for: exerciseList)
+                }
+            }
+            .onDelete(perform: deleteList)
 
-	public init() {}
-
-	public var body: some View {
-		NavigationStack {
-			List {
-				ForEach(lists) { exerciseList in
-					NavigationLink(destination: ExerciseListDetailView(exerciseList: exerciseList))
-					{
-						listRow(for: exerciseList)
-					}
-				}
-				.onDelete(perform: deleteList)
-
-				Section {
-					NavigationLink("All Exercises") {
-						AllExercisesListView()
-					}
-				}
-			}
-			.navigationTitle("My Lists")
-			.toolbar {
-				ToolbarItem {
-					Button("Add list", systemImage: "plus.circle") {
-						showNewListView = true
-					}
-				}
-
-				ToolbarItem {
-					Menu("Menu", systemImage: "note.text") {
-						Button {
-						} label: {
-							Text("Sort")
-						}
-					}
-				}
-			}
-			.sheet(isPresented: $showNewListView) {
-				NewExerciseList()
-			}
-		}
-	}
-}
-
-#Preview {
-	ExerciseListView()
-		.modelContainer(ExerciseList.previewModel)
+            Section {
+                NavigationLink("All Exercises") {
+                    AllExercisesListView()
+                }
+            }
+        }
+    }
 }
 
 extension ExerciseListView {
@@ -108,4 +78,8 @@ extension ExerciseListView {
 			}
 		}
 	}
+}
+
+#Preview {
+    ExerciseListView(sortOrder: SortDescriptor(\ExerciseList.name, order: .reverse))
 }
