@@ -49,6 +49,19 @@ struct ExerciseListDetailView: View {
 				}
 			}
 		}
+		.toolbar {
+			ToolbarItem(placement: .primaryAction) {
+				Menu("Menu", systemImage: "note.text") {
+					Button {} label: {
+						Text("Alphabetical")
+					}
+
+					Button {} label: {
+						Text("Last Completed")
+					}
+				}
+			}
+		}
 		.navigationTitle(Text(exerciseList.name))
 	}
 }
