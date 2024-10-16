@@ -46,6 +46,19 @@ final public class ExerciseList {
 	}
 }
 
+public extension ExerciseList {
+	enum SortOption {
+		case alphabetical
+	}
+
+	func sort(by option: SortOption) {
+		switch option {
+		case .alphabetical:
+			exercises.sort { $0.name.localizedCaseInsensitiveCompare($1.name) == .orderedAscending }
+		}
+	}
+}
+
 extension ExerciseList {
 	@MainActor
 	public static var previewModel: ModelContainer {

@@ -14,7 +14,7 @@ import Testing
 import SwiftData
 @testable import DataStorage
 
-struct ExcerciseListTests {
+struct ExerciseListTests {
     @Test("Sort all exercises in list alphabetically")
 	func sortingExercisesAlphabetically() async throws {
 		let config = ModelConfiguration(isStoredInMemoryOnly: true)
@@ -41,7 +41,7 @@ struct ExcerciseListTests {
 			exercise2
 		])
 
-		sut.sortExercises(by: .alphabetical)
+		sut.sort(by: .alphabetical)
 
 		#expect(sut.exercises == expectedList)
     }
