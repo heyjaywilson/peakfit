@@ -14,16 +14,33 @@ import SwiftUI
 
 public struct SettingsView: View {
 
-	public init() {}
+    @AppStorage("restTimeMinutes") private var restTimeMinutes = 1
+    @AppStorage("restTimeSeconds") private var restTimeSeconds = 5
 
-	public var body: some View {
-		NavigationStack {
-			Text("This is the Settings View")
-				.navigationTitle("Settings")
-		}
-	}
+    public init() {}
+
+    public var body: some View {
+        NavigationStack {
+            HStack {
+                Text("Rest")
+                    .bold()
+                Picker("", selection: $restTimeMinutes) {
+                    ForEach(0...5, id: \.self) {
+                        Text("\($0)")
+                    }
+                }
+                Text(restTimeMinutes <= 1 ? "minute" : "minutes")
+                Picker("", selection: $restTimeSeconds) {
+                    ForEach(Array(stride(from: 0, to: 60, by: 5)), id: \.self) {
+                        Text("\($0)")
+                    }
+                }
+                Text("seconds")
+            }.navigationTitle("Settings")
+        }
+    }
 }
 
 #Preview {
-	SettingsView()
+    SettingsView()
 }
