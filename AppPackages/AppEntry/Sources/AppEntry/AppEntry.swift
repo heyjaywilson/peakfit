@@ -18,7 +18,7 @@ public struct AppEntry: View {
 	public var body: some View {
 		TabView {
 			Tab("Sets", systemImage: "dumbbell") {
-				ExerciseListView()
+				ExerciseListContainerView()
 			}
 			Tab("Days", systemImage: "calendar") {
 				DaysView()
