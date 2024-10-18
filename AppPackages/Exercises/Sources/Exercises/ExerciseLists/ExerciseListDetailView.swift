@@ -52,7 +52,9 @@ struct ExerciseListDetailView: View {
 		.toolbar {
 			ToolbarItem(placement: .primaryAction) {
 				Menu("Menu", systemImage: "note.text") {
-					Button {} label: {
+					Button {
+						exerciseList.sort(by: .alphabetical)
+					} label: {
 						Text("Alphabetical")
 					}
 
