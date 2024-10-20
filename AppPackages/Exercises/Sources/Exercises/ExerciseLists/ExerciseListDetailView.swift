@@ -14,6 +14,8 @@ struct ExerciseListDetailView: View {
 	@Environment(\.modelContext) var modelContext
 
 	var exerciseList: ExerciseList
+    
+    @State var showSelectExercisesView = false
 
 	var body: some View {
 		List {
@@ -52,19 +54,30 @@ struct ExerciseListDetailView: View {
 		.toolbar {
 			ToolbarItem(placement: .primaryAction) {
 				Menu("Menu", systemImage: "note.text") {
-					Button {
-						exerciseList.sort(by: .alphabetical)
-					} label: {
-						Text("Alphabetical")
-					}
+                    Section {
+                        Button {
+                            exerciseList.sort(by: .alphabetical)
+                        } label: {
+                            Text("Alphabetical")
+                        }
 
-					Button {} label: {
-						Text("Last Completed")
-					}
+                        Button {} label: {
+                            Text("Last Completed")
+                        }
+                    }
+                    
+                    Section {
+                        Button("Add exercise", systemImage: "plus.circle") {
+                            showSelectExercisesView = true
+                        }
+                    }
 				}
 			}
 		}
 		.navigationTitle(Text(exerciseList.name))
+        .sheet(isPresented: $showSelectExercisesView) {
+            SelectExerciseView(nameOfList: exerciseList.name)
+        }
 	}
 }
 
