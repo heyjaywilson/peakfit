@@ -21,21 +21,24 @@ public struct SettingsView: View {
 
     public var body: some View {
         NavigationStack {
-            HStack {
-                Text("Rest")
-                    .bold()
-                Picker("", selection: $restTimeMinutes) {
-                    ForEach(0...5, id: \.self) {
-                        Text("\($0)")
+            List {
+                HStack {
+                    Text("Rest")
+                        .bold()
+                    Picker("", selection: $restTimeMinutes) {
+                        ForEach(0...5, id: \.self) {
+                            Text("\($0)")
+                        }
                     }
-                }
-                Text(restTimeMinutes <= 1 ? "minute" : "minutes")
-                Picker("", selection: $restTimeSeconds) {
-                    ForEach(Array(stride(from: 0, to: 60, by: 5)), id: \.self) {
-                        Text("\($0)")
+                    Text(restTimeMinutes <= 1 ? "minute" : "minutes")
+                    Picker("", selection: $restTimeSeconds) {
+                        ForEach(Array(stride(from: 0, to: 60, by: 5)), id: \.self) {
+                            Text("\($0)")
+                        }
                     }
+                    Text("seconds")
+                        .fixedSize(horizontal: true, vertical: false)
                 }
-                Text("seconds")
             }.navigationTitle("Settings")
         }
     }
