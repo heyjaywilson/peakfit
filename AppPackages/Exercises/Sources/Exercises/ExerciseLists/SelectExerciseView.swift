@@ -84,6 +84,7 @@ struct SelectExerciseView: View {
 		} else {
 			selectedExercises.append(exercise)
 		}
+        exerciseLists.first?.exercises = selectedExercises
 	}
 }
 
