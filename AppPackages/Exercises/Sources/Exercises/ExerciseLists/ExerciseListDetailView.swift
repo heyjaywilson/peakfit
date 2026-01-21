@@ -79,15 +79,17 @@ struct ExerciseListDetailView: View {
 
 extension ExerciseListDetailView {
 	func deleteExercise(_ exercise: Exercise) {
-		let exerciseID = exercise.persistentModelID
-		let container = modelContext.container
-		Task.detached(priority: .userInitiated) {
-			let service = Exercise.Service(modelContainer: container)
-			do {
-				try await service.delete(for: [exerciseID])
-			} catch {
-				print(#file, #function, "Error deleting exercise: \(error)")
-			}
-		}
-	}
+        let container = modelContext.container
+        let exerciseListID = exerciseList.id
+        let exerciseID = exercise.id
+
+        Task.detached(priority: .userInitiated) {
+            let service = ExerciseList.Service(modelContainer: container)
+            do {
+                try await service.addOrRemoveExercise(exerciseID: exerciseID, from: exerciseListID)
+            } catch {
+                print("🚨 \(#function) \(#file) Error adding exercise to list: \(error)")
+            }
+        }
+    }
 }
